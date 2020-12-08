@@ -1,0 +1,21 @@
+<!--pages/user/question/question.wxml-->
+<back-home navName="问卷调查"></back-home>
+<view class="container_box">
+    <view class="text_box">
+        <view>亲爱的游客朋友：</view>
+        <view style="text-indent: 2em;">您好，非常诚挚的邀请您为日照博物馆的发展提供信息和意见，以便今后更好的为您服务。谢谢大家！</view>
+    </view>
+
+    <!-- 问卷部分 start -->
+    <view class="question_box">
+        <block wx:for="{{ questionList }}" wx:for-item="item" wx:key="id">
+            <view class="group_box" data-index="{{ index }}">
+                <view class="qusetion_title">{{ index+1 }}.{{ item.title }}？</view>
+                <van-radio-group value="{{ item.answer }}" bind:change="onChange" wx:for="{{ item.options }}" wx:for-item="items" wx:key="index" data-index="{{ index }}">
+                    <van-radio name="{{ items.id }}" icon-size="38rpx" checked-color="#FF4C4B" custom-class="radio_item" data-name="{{ item.option_info }}" bindtap="onClickRadio">{{ items.option_info }}</van-radio>
+                </van-radio-group>
+            </view>
+        </block>
+    </view>
+    <!-- 问卷部分 end -->
+</view>

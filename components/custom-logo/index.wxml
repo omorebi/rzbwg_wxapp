@@ -1,0 +1,8 @@
+<!--component/custom-logo.wxml-->
+<!-- ---公用logo组件-- -->
+<view class="pageTitle"
+  style="height:{{ topHeight }}px; line-height:{{ titleLineHeight }}px; padding-top:{{ titleTop }}px; color:{{ textColor }}">
+  {{ title }}
+  <!-- <image src="{{ base_url + 'logo.png' }}"></image> -->
+  <image src="/images/logo.png"></image>
+</view>

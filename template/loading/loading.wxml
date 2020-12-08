@@ -1,0 +1,22 @@
+<template name="loadingMore">
+    <view class='loadingMore'>
+        <image src='/images/loading_icon.gif' class='loading-img' lazy-load="true"></image>
+        <view class='loading-text'>正在加载...</view>
+    </view>
+</template>
+<template name="nothing">
+    <view class='nothing {{type}}'>
+        <view class='img'>
+            <image wx:if="{{!type}}" src='/assets/images/no_data.png' mode='scaleToFill' lazy-load='true'></image>
+            <!-- 搜索 -->
+            <image wx:if="{{type=='no_search'}}" src='/assets/images/no_data_search.png' mode='scaleToFill' lazy-load='true'></image>
+            <!-- 展项 -->
+            <image wx:if="{{type=='no_zx'}}" src='/assets/images/no_data_zx.png' mode='scaleToFill' lazy-load='true'></image>
+            <!-- 年票 -->
+            <image wx:if="{{type=='no_year'}}" src='/assets/images/no_data_year.png' mode='scaleToFill' lazy-load='true'></image>
+            <!-- 卡券 -->
+            <image wx:if="{{type=='no_card'}}" src='/assets/images/no_data_card.png' mode='scaleToFill' lazy-load='true'></image>
+        </view>
+        <view class='text'>{{message}}</view>
+    </view>
+</template>

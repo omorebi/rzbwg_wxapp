@@ -1,0 +1,5 @@
+<!--pages/exhibition/exhibition.wxml-->
+<back-home navName=""></back-home>
+<view>
+    <van-button type="warning" bindtap="toDetailExhibition">跳转至具体展览页</van-button>
+</view>

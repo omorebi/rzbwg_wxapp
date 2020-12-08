@@ -1,0 +1,28 @@
+/* component/scrollText/scrollText.wxss */
+.tongzhi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.scroll_notice {
+  top: auto;
+  width: 90%;
+  white-space: nowrap;
+}
+
+.scroll_notice_item {
+  font-size: 40rpx;
+  text-align: left;
+  color: #323232;
+  width: 470rpx;
+}
+
+.scroll_notice_item_bg {
+  position: relative;
+  height: 100%;
+  display: inline-flex;
+}

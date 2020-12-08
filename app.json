@@ -1,0 +1,74 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/museumInfo/museumInfo",
+    "pages/index/visitInfo/visitInfo",
+    "pages/index/trafficInfo/trafficInfo",
+    "pages/index/dynamicList/dynamicList",
+    "pages/index/dynamicList/dynamicDeatil",
+    "pages/selectVsenues/selectVsenues",
+ 
+    "pages/exhibition/exhibition",
+    "pages/exhibition/detailExhibition/detailExhibition",
+    "pages/guide/guide",
+    "pages/user/user",
+    "pages/user/question/question",
+    "pages/user/feedback/feedback",
+    "pages/user/myLikes/myLikes",
+    "pages/user/myCollection/myCollection"
+    
+  ],
+  "window":{
+    "navigationStyle": "custom",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "日照市博物馆/美术馆",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "custom": false,
+    "backgroundColor": "#ffffff",
+    "color": "#999999",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab_imgs/tab_01.png",
+        "selectedIconPath": "images/tab_imgs/tab_01_i.png"
+      },
+      {
+        "pagePath": "pages/exhibition/exhibition",
+        "text": "展览",
+        "iconPath": "images/tab_imgs/tab_02.png",
+        "selectedIconPath": "images/tab_imgs/tab_02_i.png"
+      },
+      {
+        "pagePath": "pages/guide/guide",
+        "text": "导览",
+        "iconPath": "images/tab_imgs/tab_03.png",
+        "selectedIconPath": "images/tab_imgs/tab_03_i.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/tab_imgs/tab_05.png",
+        "selectedIconPath": "images/tab_imgs/tab_05_i.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "back-home": "/components/back-home/index",
+    "custom-logo": "/components/custom-logo/index",
+    "l-capsule-bar": "/components/capsule-bar/index",
+    "l-popup": "/components/popup/index",
+    "cropImg": "/components/img/cropImg",
+    "htmlParser": "/components/htmlParser/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-button": "@vant/weapp/button/index"
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

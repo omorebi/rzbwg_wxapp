@@ -1,0 +1,36 @@
+/* component/senior/tabs/tabs.wxss */
+.component {
+  background-color: transparent;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.content {
+  position: relative;
+}
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25rpx;
+}
+.text {
+  transition: color 0.2s
+}
+.bottom-bar {
+  position: absolute;
+  height: 2px;
+  border-radius: 2px
+}
+.small {
+  height: 4px;
+  border-radius: 2px;
+}
+.my-bottom-bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50rpx;
+  height: 8rpx;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}

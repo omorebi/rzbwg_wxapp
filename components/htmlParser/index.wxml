@@ -1,0 +1,5 @@
+<import src="../../vendor/wxParse/wxParse.wxml" />
+<rich-text wx:if="{{rich}}" nodes="{{html}}"></rich-text>
+<view class="wxParse_box" wx:else>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+</view>

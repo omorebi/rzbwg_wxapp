@@ -1,0 +1,18 @@
+{
+  "name": "rzbwg_weapp",
+  "version": "1.0.0",
+  "description": "日照博物馆小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitrep.hengdawb.com:rzbwg_wxapp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.6.2"
+  }
+}

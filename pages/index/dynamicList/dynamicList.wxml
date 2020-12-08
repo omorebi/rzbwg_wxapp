@@ -1,0 +1,93 @@
+<!--pages/index/dynamicList/dynamicList.wxml-->
+<import src="/template/loading/loading.wxml" />
+<back-home navName="馆务动态"></back-home>
+<view class="container_box">
+    <!-- swiper start-->
+    <view class="banner_box">
+        <swiper class="carousel" indicator-dots="{{ false }}" autoplay="{{ true }}" interval="{{ 3000 }}"
+            duration="{{ 1000 }}" circular="true" bindchange="swiperChange">
+            <swiper-item class="swiper-item" wx:for="{{ bannerList }}" wx:for-item="item" wx:key="index">
+                <!-- <cropImg src="{{ item.imgUrl }}" width="1380" height="1380" data-id="{{ item.id }}"
+                    bindtap="toDetailExhibitions"></cropImg> -->
+                <image src="{{ item.imgUrl }}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- swiper end-->
+    <!-- 自己写的面板指示点 -->
+    <view class="dots">
+        <block wx:for="{{ bannerList }}" wx:key="*">
+            <view class="dot{{index == currentIndex ? ' active' : ''}}"></view>
+        </block>
+    </view>
+
+    <!-- tab选项卡 start -->
+    <view class="tab_title">
+        <block wx:for="{{ tabList }}" wx:for-item="item" wx:key="index">
+            <view class="tab_item {{index == tabIndex ? 'active_tab' : '' }}" bindtap="changeTab"
+                data-index="{{ index }}">
+                <view>{{ item }}</view>
+                <view class="active_line"></view>
+            </view>
+        </block>
+    </view>
+    <view class="common-line"></view>
+
+    <!-- 内容部分 A -->
+    <view class="tab_content" hidden="{{ tabIndex!== 0 }}">
+        <view class="dynamicList_box">
+
+            <view class="dynamicList_item" wx:for="{{ dynamicList }}" wx:for-item="item" wx:for-index="index"
+                wx:key="this" data-id="{{ item.id }}" bindtap="toDetailDynamic">
+                <!-- 正常的上下布局 -->
+                <block wx:if="{{ item.default_img=='' }}">
+                    <view class="dynamicListLine" wx:if="{{ toppingLine && index == toppingNum }}"></view>
+                    <view class="upDownBox_title">{{ item.title }}</view>
+                    <view class="upDownBox_des">
+                        <!-- <view class="topping" wx:if="{{ item.is_top==1 }}">置顶</view> -->
+                        <view class="date">
+                            {{ item.publish_date.y }}-{{ item.publish_date.m }}-{{ item.publish_date.d }}
+                        </view>
+                    </view>
+                    <!-- line -->
+                    <view class="dynamicListLine"></view>
+                </block>
+
+                <block wx:if="{{ item.default_img!=='' }}">
+                    <!-- 第二种布局 左右布局 -->
+                    <view class="row_box">
+                        <view class="row_left">
+                            <view class="row_left_title">{{ item.title }}</view>
+                            <view class="upDownBox_des row_left_des">
+                                <!-- <view class="topping" wx:if="{{ item.is_top==1 }}">置顶</view> -->
+                                <view >日照博物馆</view>
+                                <view class="column_line"></view>
+                                <view class="date">
+                                    {{ item.publish_date.y }}-{{ item.publish_date.m }}-{{ item.publish_date.d }}
+                                </view>
+                            </view>
+                        </view>
+                        <view class="row_right">
+                            <image src="{{ item.default_img }}"></image>
+                        </view>
+                    </view>
+                    <!-- line -->
+                    <view class="dynamicListLine"></view>
+                </block>
+            </view>
+        </view>
+        <view class="not-more" hover-class="none" hover-stop-propagation="false">
+            <text class="" selectable="false" space="false" decode="false">— 没有更多了 —</text>
+        </view>
+        <!-- IntersectionObserver 下拉加载更多-->
+        <view class="observer-el" wx:if="{{!notMore}}">
+            <template is="loadingMore"></template>
+        </view>
+    </view>
+
+
+    <!-- 内容部分 B -->
+    <view class="tab_content" hidden="{{ tabIndex!== 1 }}">
+        <view>B</view>
+    </view>
+</view>

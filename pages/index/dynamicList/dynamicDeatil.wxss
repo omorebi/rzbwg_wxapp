@@ -1,0 +1,22 @@
+/* pages/index/dynamicList/dynamicDeatil.wxss */
+.dynamicDeatil_box {
+  width: 670rpx;
+  letter-spacing: 2rpx;
+  margin: 60rpx auto;
+}
+
+.dynamicDeatil_box_title {
+  font-size: 40rpx;
+  color: #222222;
+}
+.dynamicDeatil_box_des {
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  color: #9A9A9A;
+  margin: 20rpx 0 30rpx 0;
+}
+.middle_box {
+  margin: 0 40rpx;
+}
+

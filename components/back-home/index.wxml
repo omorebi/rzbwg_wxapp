@@ -1,0 +1,20 @@
+<!-- 组件模板 -->
+<view class='nav-wrap' style='height: {{ height }}px; background-image: url({{ backGroungImg }})' >
+  <!-- 导航栏 中间的标题 -->
+  <view class='nav-title' style="height: {{ titleBarHeight }}rpx;">{{navName}}</view>
+  <view class="nav-icon-box" style="border-color: rgba({{capsuleColor==='black'?'0,0,0,0.1':'255,255,255,0.25'}});background-color: rgba({{capsuleColor==='black'?'255,255,255,0.6':'0,0,0,0.15'}});">
+    <!-- 导航栏  左上角的返回按钮 和home按钮 -->
+    <view class='nav-capsule' style='height:{{infos.height-2}}px;width:{{infos.width-2}}px;bottom:{{height - infos.bottom}}px;'>
+      <!-- 没有历史记录，返回上一级按钮不该存在 -->
+      <view bindtap='navback' class="back" style='height:{{infos.height-2}}px;width:{{infos.width / 2 - 2}}px;'>
+        <view class='back-pre'></view>
+      </view>
+      <view class='navbar-v-line'></view>
+      <view bindtap='backhome' class="home" style='height:{{infos.height-2}}px;width:{{infos.width / 2 -1}}px;'>
+        <view class='back-home'></view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 占位盒子 -->
+<view class='zhanwei' style='height: {{height}}px;'></view>

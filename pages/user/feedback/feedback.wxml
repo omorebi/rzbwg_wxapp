@@ -1,0 +1,17 @@
+<!--pages/feedback/feedback.wxml-->
+<!-- 留言反馈 -->
+<back-home navName="意见反馈"></back-home>
+  <view class="mian-box">
+  <view class="title">问题/意见反馈</view>
+  <view class="conts">
+    <textarea class="areas" placeholder='请输入不少于10个字的问题描述...' placeholder-class="phcolor" minlength="{{1}}"
+      maxlength="{{max}}" bindinput="inputs" value="{{ content }}">
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+    </textarea>
+  </view>
+  <view class="title">联系方式</view>
+  <view class="my_input">
+    <input bindinput="phoneNumber" placeholder-class="phcolor" placeholder="请输入手机号码或邮箱..." value="{{ contact }}"/>
+  </view>
+  <view class="btn" catchtap="submit">提交</view>
+</view>

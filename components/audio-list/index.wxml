@@ -1,0 +1,50 @@
+
+<wxs src="../../utils/date.wxs" module="date"></wxs>
+<view class="audio-container">
+	<view class="top" wx:if="{{audioDatas.length > 0}}">
+		<view class="item" wx:if="{{cur.playing == 3 }}" bindtap="allPlay">
+			<image src="{{ base_url +'paly_icon1.png'}}"></image>全部播放
+		</view>
+		<view class="item" wx:if="{{cur.playing == 2 }}" bindtap="allPlay">
+			<image src="{{ base_url +'paly_icon1.png'}}"></image>继续播放
+		</view>
+		<view class="item" wx:if="{{cur.playing == 1 }}" bindtap="allPlay">
+			<image src="{{ base_url +'stop.png'}}"></image>暂停播放
+		</view>
+		<view class="item paixu" bindtap="paixu">
+			<image src="{{ base_url }}{{ sort == 1 ? 'sort2.png' : 'sort1.png' }}"></image>排序
+		</view>
+	</view>
+
+	<view class="list">
+		<block wx:for="{{audioDatas}}" wx:for-item="t" wx:for-index="i" wx:key="audio">
+			<view class="audio_items {{cur.index==i ? 'active' : ''}}">
+				<!-- 序号 start -->
+				<view class="index_box" wx:if="{{ i >= 9 }}">
+					{{ i+1 }}
+				</view>
+				<view class="index_box" wx:else>
+					0{{ i+1 }}
+				</view>
+				<!-- 序号end -->
+				<view class="audio_info">
+					<view class="audio_name">{{t.title}}</view>
+					<view class="audio_tools">
+						<view class="time">
+							<image src="{{ base_url +'time.png'}}"></image>
+							{{date.audioTime(cur.playing &&cur.index==i ? cur.currentTime : t.audio_time)}}
+						</view>
+						<view class="time play_num">
+							<image src="{{ base_url +'play_icon_3.png'}}"></image>{{date.tranNumber(t.audio_listen_num)}}
+						</view>
+					</view>
+
+				</view>
+				<view class="play_box" bindtap="toggleList" data-index="{{i}}">
+					<image src="{{ base_url }}{{cur.playing== 1 ? 'playing.gif' : cur.playing== 2 ? 'pause.png' : 'play_icon2.png'}}" wx:if="{{cur.index==i}}"></image>
+					<image wx:else src="{{base_url}}play_icon2.png"></image>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

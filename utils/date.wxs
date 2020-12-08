@@ -1,0 +1,200 @@
+/* 
+ * 时分秒转总秒数
+ * h:m:s
+ * 1:1:1 => 3661s
+ */
+function format(data) {
+  data = data.split(":");
+  var second;
+  second = parseInt(data[0]) * 60 * 60;
+  second += parseInt(data[1]) * 60;
+  second += parseInt(data[2]);
+  return second
+}
+
+/* 
+ * 总秒数转时分秒
+ * s=>h:m:s
+ * 3661s => 1:1:1
+ */
+function reverseFormat(value) {
+
+  var theTime = parseInt(value); // 秒
+  var middle = 0; // 分
+  var hour = 0; // 小时
+
+  if (theTime > 59) {
+    middle = parseInt(theTime / 60);
+    theTime = parseInt(theTime % 60);
+    if (middle > 59) {
+      hour = parseInt(middle / 60);
+      middle = parseInt(middle % 60);
+    }
+  }
+  if (parseInt(hour) < 10) {
+    hour = '0' + hour
+  }
+  if (parseInt(middle) < 10) {
+    middle = '0' + middle
+  }
+  if (parseInt(theTime) < 10) {
+    theTime = '0' + theTime
+  }
+  var result = hour + ":" + middle + ":" + theTime;
+
+  return result;
+}
+
+
+
+//播放时间换算s=>m:s
+function audioTime(s) {
+  var t = '';
+  if (s > -1) {
+    var min = Math.floor(s / 60);
+    var sec = s % 60;
+    if (min < 10) {
+      t = "0";
+    }
+    t += min + ":";
+    if (sec < 10) {
+      t += "0";
+    }
+    t += sec.toFixed(0);
+  }
+  return t;
+}
+
+//播放时间换算m:s=>s
+function audioBackTime(s) {
+  var t = '';
+  s = s.split(":");
+  t = s[0] * 60 + parseInt(s[1]);
+  return t;
+}
+/* 
+ * 索引值补齐
+ * 1 》 01 2 》 02
+ */
+function repair(s) {
+  if (parseInt(s) < 10) {
+    s = '0' + s
+  }
+  return s;
+}
+/* 
+ * date -替换成.
+ * 2020-09-17 to 2020.09.17
+ */
+function replaceDate(s) {
+  var reg = getRegExp('[-]', 'g')
+  var t = s.replace(reg, '.')
+  return t;
+}
+
+
+
+
+/**
+ * 数字转整数 如 100000 转为10万
+ * @param {需要转化的数} num 
+ * @param {需要保留的小数位数} point  默认2位
+ */
+function tranNumber(num, point) {
+  point = point || 2;
+  var numStr = num.toString()
+  // 万以内直接返回 
+  if (numStr.length < 5) {
+    return numStr;
+  }
+  //大于8位数是亿
+  else if (numStr.length > 8) {
+    var decimal = numStr.substring(numStr.length - 8, numStr.length - 8 + point);
+    return parseFloat(parseInt(num / 100000000) + '.' + decimal) + '亿';
+  }
+  //大于4位数是万 (以1W分割 1W以下全部显示)
+  else if (numStr.length > 4) {
+    var decimal = numStr.substring(numStr.length - 4, numStr.length - 4 + point)
+    return parseFloat(parseInt(num / 10000) + '.' + decimal) + '万';
+  }
+}
+
+function formatDate(timestamp, option = "YY-MM-DD hh-mm") {
+  date = getDate(timestamp);
+  var year = date.getFullYear()
+  var month = function () {
+    return date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+  }
+  var day = function () {
+    return date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+  }
+  var hour = function () {
+    return date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+  }
+
+  var minute = function () {
+    return date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+  }
+
+  var second = function () {
+    return date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+  }
+
+  var week = function () {
+    var weeks = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    return weeks[date.getDay()];
+  }
+  //获取 年月日
+  if (option == 'YY-MM-DD hh-mm') return year + "-" + month() + "-" + day() + " " + hour() + ":" + minute();
+
+  //获取 年月日
+  if (option == 'YY-MM-DD') return year + "-" + month() + "-" + day();
+
+  //获取年月
+  if (option == 'YY-MM') return year + "-" + month();
+
+  //获取年
+  if (option == 'YY') return year;
+
+  //获取月
+  if (option == 'MM') return month();
+
+  //获取日
+  if (option == 'DD') return day();
+
+  //获取昨天
+  if (option == 'yesterday') return day() * 1 - 1;
+
+  //获取时分秒
+  if (option == 'hh-mm-ss') return hour() + ":" + minute() + ":" + second();
+
+  //获取时分
+  if (option == 'hh-mm') return hour() + ":" + minute();
+
+  //获取分秒
+  if (option == 'mm-ss') return minute() + ":" + second();
+
+  //获取分
+  if (option == 'mm') return minute();
+
+  //获取秒
+  if (option == 'ss') return second();
+
+  //获取星期几
+  if (option == 'week') return week();
+
+  //默认时分秒年月日
+  return year + '-' + month + '-' + day + ' ' + hour() + ':' + minute() + ":" + second();
+}
+
+
+module.exports = {
+  format: format,
+  reverseFormat: reverseFormat,
+  audioTime: audioTime,
+  audioBackTime: audioBackTime,
+  tranNumber: tranNumber,
+  repair: repair,
+  formatDate: formatDate,
+  replaceDate: replaceDate,
+}

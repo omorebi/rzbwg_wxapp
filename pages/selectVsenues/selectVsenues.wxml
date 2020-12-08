@@ -1,0 +1,13 @@
+<!--pages/selectVsenues/selectVsenues.wxml-->
+<view class="select-vsenues-box">
+    <block wx:for="{{ vsenuesList }}" wx:for-item="item" wx:for-index="index">
+        <view class="img-box" data-id="{{ item.id }}" bindtap="chooseVsenues">
+            <image src="{{ item.imgUrl }}"></image>
+            <view class="vsenues-name"></view>
+        </view>
+    </block>
+
+
+    <!-- 详细信息 -->
+    <view></view>
+</view>

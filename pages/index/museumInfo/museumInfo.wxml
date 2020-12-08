@@ -1,0 +1,7 @@
+<!--pages/index/museumInfo/museumInfo.wxml-->
+<back-home navName="本馆介绍"></back-home>
+<view class="container_box">
+    <image src="/images/index/i2.png" class="heard_img"></image>
+    <!-- 文字部分 -->
+    <view class="text_box">123</view>
+</view>

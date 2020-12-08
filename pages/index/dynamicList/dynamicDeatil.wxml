@@ -1,0 +1,14 @@
+<!--pages/index/dynamicList/dynamicDeatil.wxml-->
+<import src="../../../vendor/wxParse/wxParse.wxml" />
+<back-home navName="湘博动态"></back-home>
+<view class="dynamicDeatil_box">
+  <view class="dynamicDeatil_box_title">{{ news.title }}</view>
+  <view class="dynamicDeatil_box_des">
+    <view>{{ news.publish_date.y }}-{{ news.publish_date.m }}-{{ news.publish_date.d }} {{ news.publish_date.h }}:{{ news.publish_date.i }}</view>
+    <view class="middle_box">{{ news.author }}</view>
+    <view>浏览量 {{ news.views }}</view>
+  </view>
+  <view class="dynamicDeatil_box_content">
+    <htmlParser html="{{ news.content }}" isNoStyle="true" />
+  </view>
+</view>

@@ -1,0 +1,92 @@
+/* pages/index/visitInfo/visitInfo.wxss */
+.container_box .heard_img {
+    display: block;
+    margin: 60rpx auto 0 auto;
+    width: 697rpx;
+    height: 470rpx;
+    border-radius: 12rpx;
+}
+.text_box {
+    padding: 28rpx;
+    /* background-color: pink; */
+}
+
+.title_box {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 15rpx;
+} 
+
+/* 时间盒子 */
+.timer_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin-top: 40rpx;
+}
+.timer_item {
+    width: 334rpx;
+    height: 63rpx;
+    line-height: 63rpx;
+    border: 1px solid #C76457;
+    border-radius: 7rpx;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+}
+.red_left {
+    width: 173rpx;
+    background-color: #BA3F2F;
+    text-align: center;
+    opacity: 0.8;
+    font-size: 40rpx;
+    color: #FFFFFF;
+}
+.white_right {
+    width: 160rpx;
+    background-color: #FFFFFF;
+    text-align: center;
+    font-size: 32rpx;
+    text-align: center;
+    color: #222222;
+}
+
+/* tips盒子 */
+.tips_box {
+    color: #434343;
+    font-size: 27rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10rpx;
+    margin-bottom: 44rpx;
+}
+.round {
+    display: inline-block;
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    background: #bcbcbc;
+    margin-right: 17rpx;
+}
+/* 门票价格 */
+.price_info {
+    padding: 30rpx;
+    margin-bottom: 44rpx;
+}
+/* 联系电话 */
+.phone_box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30rpx;
+}
+.phone_item {
+    color: #ba3f2f;
+    border-bottom: 1px solid #ba3f2f;
+    font-size: 32rpx;
+    font-weight: bold;
+}

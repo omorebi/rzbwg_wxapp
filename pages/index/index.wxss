@@ -1,0 +1,201 @@
+/* pages/index/index.wxss */
+page {
+  background-color: #FFFFFF;
+  letter-spacing: 2rpx;
+}
+
+/* 轮播图 */
+.carousel {
+  width: 690rpx;
+  height: 690rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.swiper-item image {
+  height: 690rpx;
+  width: 690rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+/* 自己写的指示点 */
+.dots {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.dots .dot {
+  margin: 0 5rpx;
+  width: 33rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background-color: #6A382DFF;
+  opacity: 0.2;
+  transition: all .6s;
+}
+
+.dots .dot.active {
+  width: 58rpx;
+  height: 6rpx;
+  background-color: var(--font-theme-color);
+  opacity: 1;
+}
+
+
+/* 导航栏 */
+.header_box {
+  padding: 40rpx 44rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu_box {
+  width: 140rpx;
+  text-align: center;
+}
+
+.menu_icon {
+  height: 60rpx;
+  width:  60rpx;
+  margin: 0 auto;
+}
+
+.menu_title {
+  text-align: center;
+  color: #4D525A;
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+}
+
+
+
+
+/* 湘博动态 */
+.dynamic_box {
+  margin-bottom: 30rpx;
+}
+
+.dynamic_main {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dynamic_content {
+  padding: 20rpx 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 24rpx;
+}
+
+.dynamic_item {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #FBFBFB;
+}
+
+.dynamic_item:last-of-type {
+  border-bottom: none;
+}
+
+.dynamic_name {
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  color: #424851;
+  margin-bottom: 20rpx;
+}
+
+.dynamic_des {
+  display: flex;
+  flex-direction: row;
+  color: #707070;
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  letter-spacing: 1rpx;
+}
+
+.greyLine {
+  margin: 0 15rpx;
+}
+/* 置顶 */
+.topping {
+  padding: 4rpx 5rpx;
+  border: 1rpx solid  var(--font-theme-color);
+  color: var(--font-theme-color);
+  border-radius: 5rpx;
+  margin-right: 14rpx;
+  font-size: 16rpx;
+}
+
+/* 展览部分 */
+.nav_title {
+  padding: 0 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.nav_title .left {
+  font-size: 44rpx;
+  color: #424851;
+  letter-spacing: 2rpx;
+  font-weight: 400;
+  position: relative;
+  padding-left: 6rpx;
+}
+.nav_title .left .nav_icon {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  z-index: -1;
+}
+.nav_title .right {
+  color: #C4AC88FF;
+  font-size: 30rpx;
+}
+
+/* scroll-view 部分 */
+.scroll-box {
+  width: 750rpx;
+  height: 348rpx;
+  display: flex;
+  flex-direction: row !important;
+  margin-bottom: 100rpx;
+  white-space: nowrap;
+}
+
+.exhibition_item {
+  width: 500rpx;
+  height: 340rpx;
+  border: 4rpx solid #e3be3f;
+  border-radius: 6rpx;
+  display: inline-block !important;
+  margin-right: 48rpx;
+  position: relative;
+
+}
+.exhibition_item:first-child {
+  margin-left: 48rpx;
+}
+.item-imgs image {
+  width: 500rpx;
+  height: 340rpx;
+}
+.exhibition_name {
+  width: 500rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  background-color: rgba(127,42,23,.8);
+  bottom: 0;
+  left: 0;
+}

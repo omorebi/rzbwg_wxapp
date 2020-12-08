@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wxzx-progress": "/components/wxzx-progress/wxzx-progress"
+  }
+}

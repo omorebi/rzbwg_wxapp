@@ -1,0 +1,65 @@
+/* components/component-tag-name.wxss */
+/* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+.nav-wrap {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #000;
+  z-index: 9999999;
+  background-color: #fff;
+}
+/* 标题要居中 */
+.nav-title {
+  position: absolute;
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 36rpx;
+  color: #2c2b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-box{
+  display: flex; 
+  justify-content: space-around;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+}
+
+.nav-capsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7pt;
+  border:1px solid rgba(226, 226, 226, 1);
+  border-radius:60rpx;
+  position: absolute;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+
+.navbar-v-line {
+  width: 1px;
+  height: 32rpx;
+  background-color: rgba(226, 226, 226, .6);
+}
+.back-pre{
+  width: 100%;
+  height: 100%;
+  background: url("https://www.hymuseum.org.cn/wxmini/back.png") no-repeat center center;
+  background-size: auto 66% ;
+}
+.back-home {
+  width: 100%;
+  height: 100%;
+  background: url("https://www.hymuseum.org.cn/wxmini/home.png") no-repeat center;
+  background-size: auto 64%;
+}

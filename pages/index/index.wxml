@@ -1,0 +1,92 @@
+<!--pages/index/index.wxml-->
+<view class="container_box">
+  <!-- 公共logo组件 -->
+  <custom-logo textColor="#FEE29B"></custom-logo>
+  <!-- 搜索栏 start -->
+  <view class="search-box">
+    <view class="search-bg" bindtap="toSearchPage">
+      <image class="search-image" src="{{ base_url + 'search_icon.png' }}"></image>
+      <text>请输入关键字搜索</text>
+    </view>
+  </view>
+  <!-- 搜索栏 end -->
+  <!-- swiper start-->
+  <view class="banner_box">
+    <swiper class="carousel" indicator-dots="{{ false }}" autoplay="{{ true }}" interval="{{ 3000 }}"
+      duration="{{ 1000 }}" circular="true" bindchange="swiperChange">
+      <swiper-item class="swiper-item" wx:for="{{ bannerList }}" wx:for-item="item" wx:key="index">
+        <cropImg src="{{ item.home_img }}" width="1380" height="1380" data-id="{{ item.id }}"
+          bindtap="toDetailExhibitions"></cropImg>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- swiper end-->
+  <!-- 自己写的面板指示点 -->
+  <view class="dots">
+    <block wx:for="{{ bannerList }}" wx:key="*">
+      <view class="dot{{index == currentIndex ? ' active' : ''}}"></view>
+    </block>
+  </view>
+  <!-- 导航部分 start-->
+  <view class="header_box">
+    <block wx:for="{{menus}}" wx:key="item" wx:for-index="i">
+      <view class="menu_box" id="{{item.id}}" bindtap="clickMenu">
+        <image class='menu_icon' src="{{ item.img }}" lazy-load="true"></image>
+        <view class="menu_title">{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- 导航部分 end-->
+  <view class="common-line"></view>
+
+  <!-- 馆务动态 -->
+  <view class="dynamic_box" hidden="{{ dynamicList.length<1 }}">
+    <view class="nav_title">
+      <view class="left">
+        <view>馆务动态</view>
+        <!-- <image src="/images/n2.png" class="nav_icon"></image> -->
+      </view>
+      <view class="right" bindtap="toDynamicList">更多 ></view>
+    </view>
+    <!--  -->
+    <view class="dynamic_main">
+      <view class="dynamic_content">
+        <block wx:for="{{ dynamicList }}" wx:for-item="item" wx:key="*this">
+          <view class="dynamic_item" bindtap="toDynamicDetail" data-id="{{ item.id }}" wx:if="{{ index <=2 }}">
+            <view class="dynamic_name">{{item.title }}</view>
+            <view class="dynamic_des">
+              <view class="topping" wx:if="{{ item.is_top === 1 }}">置顶</view>
+              <text>日照博物馆</text>
+              <text class="greyLine"> | </text>
+              <text>{{ item.publish_date.y }}-{{ item.publish_date.m }}-{{ item.publish_date.d }}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="common-line"></view>
+
+
+  <!-- 馆藏精品=== 美术馆的标题不一样，mark -->
+  <view class="exhibition_box">
+    <view class="nav_title">
+      <view class="left">
+        <view>馆藏精品</view>
+        <!-- <image src="/images/n1.png" class="nav_icon"></image> -->
+      </view>
+      <view class="right" bindtap="toExhibitionList">更多 ></view>
+    </view>
+    <!-- ！！！！！！坑 -->
+    <scroll-view class="scroll-box" scroll-x scroll-left="{{ scrollLeft }}">
+      <block wx:for="{{ exhibitionList }}" wx:for-item="item" wx:key="*this">
+        <view class="exhibition_item" bindtap="toDetails" data-id="{{ item.id }}">
+          <view class='item-imgs'>
+            <image src="{{ item.home_img }}"></image>
+          </view>
+          <view class="exhibition_name">{{ item.cate_name }}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

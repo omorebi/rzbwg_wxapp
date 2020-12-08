@@ -1,0 +1,10 @@
+<!-- 组件模板 -->
+
+<van-image wx:if="{{yes}}" src="{{newSrc}}" image-class="img-class" use-loading-slot bind:click="onTap"
+  bind:error="onError" lazy-load="true" fit="{{m || mode}}" showLoading="{{showLoading}}">
+  <view class="loding-logo" slot="loading"></view>
+</van-image>
+
+<view class="loding-logo" wx:else>
+  <image></image>
+</view>

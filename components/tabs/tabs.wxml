@@ -1,0 +1,12 @@
+<!--component/senior/tabs/tabs.wxml-->
+<scroll-view class='component cus' scroll-x="{{ isScroll }}" style='background-color:{{ backGroungColor }};background-image: url("{{ backGroungImg }}")'>
+  <view class='content'>
+    <view class='item' data-cus="{{ dataCus[index] }}" data-index="{{ index }}" wx:for="{{ items }}" wx:key="*this" style='min-width: {{ itemWidth }}rpx; height: {{ height }}rpx;padding: 0 {{itemPadding}}rpx;' catchtap='onItemTap' >
+      <text class='text' style='color: {{ mSelected == index ? selectFontColor : textColor }};font-size: {{ mSelected == index ? textSize + "rpx" : selectFontSize + "rpx"}};'>{{ item }}</text>
+    </view>
+    <view class='bottom-bar {{ theme == "smallBar" ? "small" : "" }}' style='left: {{ left }}px; right: {{ right }}px; bottom: {{ bottom }}rpx;border-shadow: 0rpx 0rpx 10rpx 0rpx {{ selectColor }};'>
+      <view class="my-bottom-bar" style='background-color: {{ selectColor }}; transition: {{ transition }}; '></view>
+    </view>
+  </view>
+</scroll-view>
+

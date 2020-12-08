@@ -1,0 +1,13 @@
+/* pages/selectVsenues/selectVsenues.wxss */
+.img-box {
+    width: 643rpx;
+    height: 360rpx;
+    border-radius: 20px;
+    box-shadow: 0px 13rpx 59rpx 8rpx rgba(188, 188, 188, 0.4);
+    margin: 70rpx auto 60rpx auto;
+
+}
+.img-box image {
+    width: 643rpx;
+    height: 360rpx;
+}

@@ -1,0 +1,15 @@
+/* component/customTitle.wxss */
+.pageTitle{
+  height: 176rpx;
+  font-size: 36rpx;
+  font-weight: 500;
+  text-align: left;
+  background-color: #fff;
+}
+.pageTitle image {
+  width: 230rpx;
+  height: 70rpx;
+  padding-top: 6rpx;
+  display: block;
+  margin: 0 auto;
+}

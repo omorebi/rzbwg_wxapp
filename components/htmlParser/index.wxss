@@ -1,0 +1,9 @@
+@import '../../vendor/wxParse/wxParse.wxss';
+.wxParse_box view {
+    font-family: "fontFamily";
+}
+.wxParse-p .wxParse-img {
+    height: auto;
+    width: auto;
+    max-width: 100% !important;
+}

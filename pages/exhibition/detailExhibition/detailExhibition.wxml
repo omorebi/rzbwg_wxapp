@@ -1,0 +1,5 @@
+<!--pages/exhibition/detailExhibition/detailExhibition.wxml-->
+<back-home navName=""></back-home>
+<view>
+    展览详情页
+</view>

@@ -1,0 +1,10 @@
+<!--component/scrollText/scrollText.wxml-->
+<view class="tongzhi">
+  <view class='scroll_notice'>
+    <scroll-view>
+      <view class="scroll_notice_item_bg" style="transform: translateX(-{{marqueeDistance}}px)">
+        <view class='scroll_notice_item'>{{content}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

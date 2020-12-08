@@ -1,0 +1,27 @@
+/* pages/user/question/question.wxss */
+.text_box {
+    width: 700rpx;
+    margin: 0 auto;
+    margin-top: 60rpx;
+    /* background-color: pink; */
+
+}
+
+/* 问卷 */
+.question_box {
+    padding: 0 38rpx;
+    font-size: 30rpx;
+    color: #353535;
+}
+.qusetion_title {
+    line-height: 51rpx;
+    letter-spacing: 3rpx;
+    margin-bottom: 26rpx;
+}
+.group_box {
+    margin-top: 30rpx;
+    margin-bottom: 46rpx;
+}
+.radio_item {
+    margin-bottom: 20rpx;
+}

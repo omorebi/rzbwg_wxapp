@@ -1,0 +1,11 @@
+/* pages/index/museumInfo/museumInfo.wxss */
+.container_box .heard_img {
+    display: block;
+    margin: 60rpx auto 0 auto;
+    width: 710rpx;
+    height: 400rpx;
+    border-radius: 20rpx;
+}
+.text_box {
+    padding: 34rpx;
+}

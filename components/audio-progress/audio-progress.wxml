@@ -1,0 +1,13 @@
+<!--template/component/audio-progress.wxml-->
+
+
+<view class='progress_box' style='width:{{progressWidth}};height: {{progressWidth}};'>
+    <canvas class="progress_bg" style='width:{{progressWidth}};height: {{progressWidth}};'  canvas-id="canvasProgressbg">  </canvas> 
+    <view class="progress_text" bindtap='tapAction'>
+      <view class="progress_dot"></view> 
+      <text class='progress_info'>persentText</text>
+    </view>     
+  </view>
+
+
+<!--  -->

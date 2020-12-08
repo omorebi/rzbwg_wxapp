@@ -1,0 +1,18 @@
+<!--pages/user/myLikes/myLikes.wxml-->
+<back-home navName="我的点赞"></back-home>
+<view class="container_box">
+    <block wx:for="{{ likeList }}" wx:for-item="item" wx:key="*this">
+        <view class="like_items" bindtap="toDetail" data-id="{{ item.id }}">
+            <view class="item_left">
+                <image class="" src="/images/e1.png"></image>
+            </view>
+            <view class="item_right">
+                <view class="name">{{ item.name }}</view>
+                <view class="date">{{ item.time }}</view>
+                <!-- 删除按钮 -->
+                <image src="/images/delete2.png" class="delete_btn" bindtap="deleteLike" data-id="{{ item.id }}"></image>
+            </view>
+        </view>
+    </block>
+</view>
+

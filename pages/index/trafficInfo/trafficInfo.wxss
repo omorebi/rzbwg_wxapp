@@ -1,0 +1,24 @@
+/* pages/index/trafficInfo/trafficInfo.wxss */
+.container_box .heard_img {
+    display: block;
+    margin: 60rpx auto 0 auto;
+    width: 710rpx;
+    height: 400rpx;
+    border-radius: 13rpx;
+    box-shadow: 0px 7rpx 15rpx 0rpx rgba(0,0,0,0.2); 
+    margin-bottom: 50rpx;
+}
+.traffic_box {
+    padding: 0 22rpx;
+}
+.traffic_title {
+    font-size: 40rpx;
+    color: #222222;
+    font-weight: 700;
+}
+.traffic_title view {
+    margin-left: 70rpx;
+}
+.traffic_content {
+    padding: 34rpx 50rpx 64rpx 70rpx;
+}

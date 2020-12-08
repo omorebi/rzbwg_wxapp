@@ -1,0 +1,69 @@
+/* pages/feedback/feedback.wxss */
+page {
+  background-color: #fff;
+  padding-top: 20rpx;
+}
+.mian-box {
+  padding: 60rpx;
+}
+.mian-box .title {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30rpx;
+}
+/* textarea部分 */
+.conts {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 60rpx;
+}
+.areas {
+  width: 100%;
+  height: 352rpx;
+  font-size: 30rpx;
+  padding: 30rpx;
+  position: relative;
+  background-color: #F0F0F0;
+  box-sizing: border-box;
+}
+
+.currentWordNumber {
+  font-size: 28rpx;
+  color: #000000;
+  position: absolute;
+  right: 30rpx;
+  bottom: 20rpx;
+}
+
+.phcolor {
+  color: #BEBEBE;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+  font-family: "fontFamily";
+}
+/* 联系方式输入框 */
+.my_input {
+  width: 100%;
+  height: 95rpx;
+  padding: 0 30rpx;
+  background-color: #F0F0F0;
+  box-sizing: border-box;
+}
+.my_input input {
+  height: 95rpx;
+  line-height: 95rpx;
+}
+
+.btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #992E2D;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+  letter-spacing: 4rpx;
+  margin-top: 160rpx;
+}
