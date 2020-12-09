@@ -1,5 +1,79 @@
 <!--pages/exhibition/exhibition.wxml-->
 <back-home navName=""></back-home>
-<view>
-    <van-button type="warning" bindtap="toDetailExhibition">跳转至具体展览页</van-button>
+<view class="container">
+
+    <image src="/images/yellow.png" class="top-img" lazy-load="true"></image>
+    <!-- 基本陈列 -->
+    <view class="exhibition-category">
+        <view class="nav">
+            <image src="/images/red.png"></image>
+            <swiper current="{{currentIndex}}" bindchange="swiperChange">
+                <swiper-item wx:for="{{basicExhibitionList}}" wx:key="id">
+                    <view>{{item.name}}</view>
+                    <view class="nav-place">展期：{{item.open_date_info}}</view>
+                </swiper-item>
+            </swiper>
+            <view class="dots">
+                <view wx:for="{{basicExhibitionList}}" wx:key="id" class="{{index===currentIndex?'active-':''}}dot"></view>
+            </view>
+        </view>
+
+        <view class="title">
+            <view class="left">
+                <image src="/images/red.png"></image>
+                <view>基本陈列</view>
+            </view>
+            <navigator class="right" target="#">
+                <view>更多</view>
+                <image src="/images/yellow.png"></image>
+            </navigator>
+        </view>
+        
+        <swiper current="{{currentIndex}}" bindchange="swiperChange" class="basic-exhibition-swiper" previous-margin="70rpx" next-margin="70rpx">
+            <swiper-item wx:for="{{basicExhibitionList}}" wx:key="id" >
+                <navigator target="#" class="basic-exhibition-swiper-box" style="{{index===currentIndex?'margin: 0 30rpx;':''}} {{index>currentIndex?'float: left':''}} {{index<currentIndex?'float:right':''}}"  >
+                    <image style="{{index===currentIndex?'height: 300rpx;width: 550rpx;margin-top: 0;':''}}"   src="{{item.default_img}}"></image>
+                    <view>{{item.name}}</view>
+                    <view class="exhibition-place">展览地点：{{item.place}}</view>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 临时展览 -->
+    <view class="exhibition-category">
+        <view class="title sec-title">
+            <view class="left">
+                <image src="/images/red.png"></image>
+                <view>临时展览</view>
+            </view>
+            <navigator target="#" class="right">
+                <view>更多</view>
+                <image src="/images/yellow.png"></image>
+            </navigator>
+        </view>
+        <scroll-view scroll-x="true" class="scroll" target="#">
+            <navigator class="scroll-box" wx:for="{{tempExhibitionList}}" wx:key="id">
+                <image src="{{item.default_img}}"></image>
+            </navigator>
+        </scroll-view>
+    </view>
+    <!-- 虚拟博物馆 -->
+    <view class="exhibition-category">
+        <view class="title sec-title">
+            <view class="left">
+                <image src="/images/red.png"></image>
+                <view>虚拟博物馆</view>
+            </view>
+            <navigator class="right" target="#">
+                <view>更多</view>
+                <image src="/images/yellow.png"></image>
+            </navigator>
+        </view>
+        <scroll-view scroll-x="true" class="scroll">
+            <navigator class="scroll-box virtual-scroll-box" wx:for="{{tempExhibitionList}}" wx:key="id" target="#">
+                <image src="{{item.default_img}}"></image>
+                <view>{{item.name}}</view>
+            </navigator>
+        </scroll-view>
+    </view>
 </view>

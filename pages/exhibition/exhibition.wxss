@@ -1,1 +1,135 @@
 /* pages/exhibition/exhibition.wxss */
+/* 背景图片 */
+.container {
+  background-color: #ededed;
+}
+.top-img {
+  width: 750rpx;
+  height: 600rpx;
+}
+.nav {
+  width: 710rpx;
+  height: 160rpx;
+  background-color: #ffffff;
+  margin: 0 auto;
+  position: relative;
+  bottom: 80rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 15rpx #aaaaaa;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav image {
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 20rpx;
+}
+.nav swiper {
+  width: 570rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+.nav-place {
+  color: #aaaaaa;
+}
+.dots {
+  position: absolute;
+  bottom: 12rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 710rpx;
+}
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 5rpx;
+  background-color: #C79289;
+  transition: all 0.2s;
+  margin: 0 5rpx;
+}
+.active-dot {
+  width: 20rpx;
+  height: 10rpx;
+  background-color: #8A210B;
+  border-radius: 5rpx;
+  margin: 0 5rpx;
+  transition: all 0.2s;
+}
+.title {
+  width: 710rpx;
+  margin: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.left image {
+  width: 20rpx;
+  height: 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8rpx;
+}
+.left view {
+  display: inline-block;
+  vertical-align: middle;
+}
+.right view{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 26rpx;
+  color: #aaaaaa;
+}
+.right image {
+  width: 20rpx;
+  height: 30rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8rpx;
+}
+
+.basic-exhibition-swiper {
+  padding: 50rpx 0 20rpx;
+  width: 750rpx;
+  height: 400rpx;
+}
+.basic-exhibition-swiper image {
+  height: 240rpx;
+  width: 440rpx;
+  margin: 30rpx 0 20rpx;
+  transition: all 0.2s;
+}
+.basic-exhibition-swiper-box view {
+  transition: all 0.2;
+}
+.exhibition-place {
+  color: #aaaaaa;
+  font-size: 26rpx;
+}
+.exhibition-category {
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  padding-bottom: 20rpx;
+}
+.sec-title {
+  padding: 30rpx 0 50rpx;
+}
+.scroll {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.scroll-box {
+  display: inline-block;
+  margin: 20rpx;
+}
+.scroll-box image {
+  width: 350rpx;
+  height: 500rpx;
+}
+.virtual-scroll-box image {
+  width: 650rpx;
+  height: 400rpx;
+  border-radius: 15rpx;
+  margin-bottom: 20rpx;
+}
