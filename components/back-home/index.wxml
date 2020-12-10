@@ -1,5 +1,5 @@
 <!-- 组件模板 -->
-<view class='nav-wrap' style='height: {{ height }}px; background-image: url({{ backGroungImg }})' >
+<view class='nav-wrap' style='background-color: {{transparent?"":"#fff"}};height: {{ height }}px; background-image: url({{ backGroungImg }})' >
   <!-- 导航栏 中间的标题 -->
   <view class='nav-title' style="height: {{ titleBarHeight }}rpx;">{{navName}}</view>
   <view class="nav-icon-box" style="border-color: rgba({{capsuleColor==='black'?'0,0,0,0.1':'255,255,255,0.25'}});background-color: rgba({{capsuleColor==='black'?'255,255,255,0.6':'0,0,0,0.15'}});">
@@ -17,4 +17,4 @@
   </view>
 </view>
 <!-- 占位盒子 -->
-<view class='zhanwei' style='height: {{height}}px;'></view>
+<view wx:if="{{!transparent}}" class='zhanwei' style='height: {{height}}px;'></view>

@@ -19,14 +19,7 @@ Page({
       this.getTempExhibitionList();
       this.getVirtualExhibtionList();
     },
-    /**
-     * 跳转到具体展览页面
-     */
-    toDetailExhibition() {
-        wx.navigateTo({
-          url: '/pages/exhibition/detailExhibition/detailExhibition',
-        })
-    },
+    
     getBasicExhibitionList(){
       let that = this;
       get_exhibition_list(2).then(res => {

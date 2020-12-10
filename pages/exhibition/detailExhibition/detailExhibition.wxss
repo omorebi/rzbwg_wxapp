@@ -1,1 +1,154 @@
 /* pages/exhibition/detailExhibition/detailExhibition.wxss */
+.background-img {
+  width: 750rpx;
+  height: 484rpx;
+  position: fixed;
+}
+.content {
+  width: 750rpx;
+  border-radius: 14rpx;
+  background-color: #ffffff;
+  position: relative;
+  top: 470rpx;
+}
+
+.title {
+  padding-top: 30rpx;
+  margin: 0 30rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.exhibition-info {
+  margin: 40rpx 30rpx;
+  font-size: 24rpx;
+  color: #666666;
+}
+.exhibition-info view {
+  margin: 10rpx 0;
+}
+
+.video {
+  width: 710rpx;
+  margin: 0 20rpx;
+  height: 400rpx;
+}
+
+.intro-icon {
+  height: 58rpx;
+  width: 210rpx;
+  background-color: #992E2D;
+  color: #ffffff;
+  font-size: 32rpx;
+  vertical-align: middle;
+  line-height: 58rpx;
+  border-radius: 29rpx;
+  margin: 50rpx 30rpx;
+  text-align: center;
+}
+.intro-icon image {
+  display: inline-block;
+  width: 21rpx;
+  height: 23rpx;
+  vertical-align: middle;
+  margin-left: 6rpx;
+}
+.content-text {
+  width: 686rpx;
+  margin: 0 auto;
+}
+.dividing {
+  width: 750rpx;
+  height: 16rpx;
+  background-color: #efefef;
+  margin-bottom: 44rpx;
+}
+
+.exhibition-title {
+  width: 690rpx;
+  margin: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.left .big-dot {
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #8A210B;
+  border-radius: 15rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.left .small-dot {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24rpx;
+  height: 24rpx;
+  background-color: #8A210B;
+  opacity: 0.5;
+  border-radius: 12rpx;
+  margin-left: -12rpx;
+  margin-right: 10rpx;
+}
+.left view {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #232323;
+}
+.right view{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 32rpx;
+  color: #C9AB83;
+}
+.right image {
+  width: 20rpx;
+  height: 30rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 25rpx;
+}
+
+.scroll {
+  margin: 66rpx 0;
+}
+.scroll-box {
+  width: 500rpx;
+  height: 340rpx;
+  border-radius: 10rpx;
+  border: 4rpx solid #EABD00;
+  overflow: hidden;
+  position: relative;
+  margin: 0 24rpx;
+}
+.scroll-box image {
+  width: 500rpx;
+  height: 340rpx;
+}
+.exhibit-background {
+  width: 500rpx;
+  height: 70rpx;
+  position: absolute;
+  bottom: 0;
+  background-color: #8A210B;
+  opacity: 0.8;
+}
+.exhibit-title {
+  width: 500rpx;
+  height: 70rpx;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 34rpx;
+  color: #ffffff;
+  padding: 0 30rpx;
+}
+.play-icon {
+  position: absolute;
+  height: 106rpx;
+  width: 106rpx;
+  top: 147rpx;
+  left: 302rpx;
+  transition: all 0.3s;
+}

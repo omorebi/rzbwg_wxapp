@@ -1,5 +1,50 @@
 <!--pages/exhibition/detailExhibition/detailExhibition.wxml-->
-<back-home navName=""></back-home>
+<back-home navName="" transparent="true"></back-home>
 <view>
-    展览详情页
+    <image src="{{exhibitionDetail.exhibition.top_img}}" class="background-img"></image>
+
+    <view class="content">
+        <view class="title">{{exhibitionDetail.exhibition.name}}</view>
+        <view class="exhibition-info">
+            <view>展期：{{exhibitionDetail.exhibition.open_date_info}}</view>
+            <view>展厅：{{exhibitionDetail.exhibition.place}}</view>
+            <view>票价：{{exhibitionDetail.exhibition.ticket_info}}</view>
+        </view>
+
+        <view style="position: relative;">
+            <video id="myVideo" class="video" src="#" controls="{{false}}"></video>
+            <image class="play-icon" src="../../../images/play.png" style="{{isPlay?'opacity: 0':'opcaity: 1'}}" bindtap="togglePlay"></image>
+        </view>
+
+        <view class="intro-icon">
+            展览介绍
+            <image src="../../../images/zljs_btys.png"></image>
+        </view>
+
+        <view class="content-text"  >
+            <htmlParser html="{{exhibitionDetail.exhibition.content}}"></htmlParser>
+        </view>
+
+        <view class="dividing"></view>
+
+        <view class="exhibition-title">
+            <view class="left">
+                <view class="big-dot"></view>
+                <view class="small-dot"></view>
+                <view>馆藏精品</view>
+            </view>
+            <navigator class="right" url="#">
+                <view>更多</view>
+                <image src="/images/yellow.png"></image>
+            </navigator>
+        </view>
+
+        <scroll-view class="scroll" style="white-space: nowrap;width: 750rpx" scroll-x="true">
+            <navigator class="scroll-box" wx:for="{{exhibitionDetail.exhibits}}" style="display: inline-block" wx:key="id" hover-class="none" url="#">
+                <image src="{{item.list_img}}"></image>
+                <view class="exhibit-background"></view>
+                <view class="exhibit-title">{{item.title}}</view>
+            </navigator>
+        </scroll-view>
+    </view>
 </view>

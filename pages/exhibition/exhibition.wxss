@@ -133,3 +133,13 @@
   border-radius: 15rpx;
   margin-bottom: 20rpx;
 }
+.virtual-scroll-box {
+  position: relative;
+}
+.virtual-scroll-box .icon {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}

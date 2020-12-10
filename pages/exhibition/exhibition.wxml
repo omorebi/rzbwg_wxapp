@@ -1,12 +1,12 @@
 <!--pages/exhibition/exhibition.wxml-->
-<back-home navName=""></back-home>
+<back-home navName="" transparent="true"></back-home>
 <view class="container">
 
     <image src="/images/yellow.png" class="top-img" lazy-load="true"></image>
     <!-- 基本陈列 -->
     <view class="exhibition-category">
-        <view class="nav">
-            <image src="/images/red.png"></image>
+        <view class="nav" style="background: url(/images/exhibition/z4.png) 710rpx 160rpx">
+            <image src="/images/exhibition/z1.png"></image>
             <swiper current="{{currentIndex}}" bindchange="swiperChange">
                 <swiper-item wx:for="{{basicExhibitionList}}" wx:key="id">
                     <view>{{item.name}}</view>
@@ -20,10 +20,10 @@
 
         <view class="title">
             <view class="left">
-                <image src="/images/red.png"></image>
+                <image src="/images/exhibition/z3.png"></image>
                 <view>基本陈列</view>
             </view>
-            <navigator class="right" target="#">
+            <navigator class="right" url="#">
                 <view>更多</view>
                 <image src="/images/yellow.png"></image>
             </navigator>
@@ -31,7 +31,7 @@
         
         <swiper current="{{currentIndex}}" bindchange="swiperChange" class="basic-exhibition-swiper" previous-margin="70rpx" next-margin="70rpx">
             <swiper-item wx:for="{{basicExhibitionList}}" wx:key="id" >
-                <navigator target="#" class="basic-exhibition-swiper-box" style="{{index===currentIndex?'margin: 0 30rpx;':''}} {{index>currentIndex?'float: left':''}} {{index<currentIndex?'float:right':''}}"  >
+                <navigator url="./detailExhibition/detailExhibition?exhibition_id={{item.id}}" hover-class="none" class="basic-exhibition-swiper-box" style="{{index===currentIndex?'margin: 0 30rpx;':''}} {{index>currentIndex?'float: left':''}} {{index<currentIndex?'float:right':''}}"  >
                     <image style="{{index===currentIndex?'height: 300rpx;width: 550rpx;margin-top: 0;':''}}"   src="{{item.default_img}}"></image>
                     <view>{{item.name}}</view>
                     <view class="exhibition-place">展览地点：{{item.place}}</view>
@@ -43,16 +43,16 @@
     <view class="exhibition-category">
         <view class="title sec-title">
             <view class="left">
-                <image src="/images/red.png"></image>
+                <image src="/images/exhibition/z3.png"></image>
                 <view>临时展览</view>
             </view>
-            <navigator target="#" class="right">
+            <navigator url="#" class="right">
                 <view>更多</view>
                 <image src="/images/yellow.png"></image>
             </navigator>
         </view>
-        <scroll-view scroll-x="true" class="scroll" target="#">
-            <navigator class="scroll-box" wx:for="{{tempExhibitionList}}" wx:key="id">
+        <scroll-view scroll-x="true" class="scroll" url="#">
+            <navigator class="scroll-box" wx:for="{{tempExhibitionList}}" wx:key="id" hover-class="none" url="./detailExhibition/detailExhibition?exhibition_id={{item.id}}">
                 <image src="{{item.default_img}}"></image>
             </navigator>
         </scroll-view>
@@ -61,16 +61,17 @@
     <view class="exhibition-category">
         <view class="title sec-title">
             <view class="left">
-                <image src="/images/red.png"></image>
+                <image src="/images/exhibition/z3.png"></image>
                 <view>虚拟博物馆</view>
             </view>
-            <navigator class="right" target="#">
+            <navigator class="right" url="#">
                 <view>更多</view>
                 <image src="/images/yellow.png"></image>
             </navigator>
         </view>
         <scroll-view scroll-x="true" class="scroll">
-            <navigator class="scroll-box virtual-scroll-box" wx:for="{{tempExhibitionList}}" wx:key="id" target="#">
+            <navigator class="scroll-box virtual-scroll-box" wx:for="{{tempExhibitionList}}" wx:key="id" url="./detailExhibition/detailExhibition?exhibition_id={{item.id}}" hover-class="none">
+                <image class="icon" src="/images/exhibition/z2.png"></image>
                 <image src="{{item.default_img}}"></image>
                 <view>{{item.name}}</view>
             </navigator>

@@ -1,18 +1,22 @@
 // pages/exhibition/detailExhibition/detailExhibition.js
+import {get_exhibition_detail} from "../../../apis/api_index";
+const app = getApp();
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        exhibitionDetail: {},
+        isPlay: false,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.getExhibitionDetail(options.exhibition_id);
     },
 
     /**
@@ -62,5 +66,27 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    getExhibitionDetail(id){
+        let that = this;
+        get_exhibition_detail(id).then(res => {
+            console.log(res.data);
+            that.setData({
+                exhibitionDetail: res.data
+            })
+        })
+    },
+    togglePlay() {
+        let myVideo = wx.createVideoContext('myVideo');
+        console.log(this.data.isPlay);
+        if(this.data.isPlay){
+         //   myVideo.pause();
+        }
+        else{
+           // myVideo.play();
+        }
+        this.setData({
+            isPlay: !this.data.isPlay,
+        })
     }
 })
