@@ -5,6 +5,7 @@ Component({
     navName: String,
     returnFlag: String,   // 根据传的参数判断返回逻辑
     backGroungImg: String, // 花纹背景图 不传的话就是白色背景
+    transparent: Boolean,  //是否透明
     // 胶囊按钮颜色
     capsuleColor: {
       type: String,
@@ -24,6 +25,7 @@ Component({
     height: '',
     bgiFlag: '',
     backGroungImg: '',
+    transparent:  false,
     returnFlag: '0', // 根据传的参数判断返回逻辑
     back: 'https://www.hymuseum.org.cn/wxmini/back.png',
     home: 'https://www.hymuseum.org.cn/wxmini/home.png',
