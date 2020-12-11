@@ -2,7 +2,7 @@
 const app = getApp();
 import {
   feedback_save
-} from '../../../apis/api_service.js';
+} from '../../../apis/api_user.js';
 
 Page({
   data: {
@@ -40,6 +40,8 @@ Page({
     let that = this
     let content = that.data.content
     let user_phone = that.data.contact
+    let museum_id = app.globalData.museum_id
+    let api_token = wx.getStorageSync('api_token')
     if (content.length < 10) {
       wx.showToast({
         title: '留言信息不能少于10个字符',
@@ -59,7 +61,7 @@ Page({
           return
         }
         that.data.isClick = true;
-        feedback_save(content, user_phone).then(res => {
+        feedback_save(museum_id,api_token,content, user_phone).then(res => {
           console.log(res)
           that.data.isClick = false;
           that.setData({

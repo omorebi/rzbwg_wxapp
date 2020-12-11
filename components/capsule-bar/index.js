@@ -119,24 +119,10 @@ Component({
     /**
      * 监听：点击右侧按钮
      */
-    async onTapRightButton() {
-      // eventUtil.emit(this, 'linrighttap');
-
-      // const homePage = this.data.homePage;
+    onTapRightButton() {
       wx.switchTab({
         url: '/pages/index/index',
       });
-
-      // if (!this.data.disableHome) {
-      //   wx.switchTab({
-      //     url: 'pages/index/index',
-      //     fail() {
-      //       wx.navigateTo({
-      //         url: 'pages/index/index'
-      //       });
-      //     }
-      //   });
-      // }
     },
 
     /**

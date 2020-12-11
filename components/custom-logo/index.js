@@ -12,7 +12,11 @@ Component({
     textColor:{
       type:String,
       value:"#FEE29B"
-    }
+    },
+    background:{
+      type:String,
+      value:"#ffffff"
+    },
   },
 
   /**

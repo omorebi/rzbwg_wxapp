@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "scroll-text": "../../../components/scrollText/scrollText"
+  },
+  "disableScroll": true
 }

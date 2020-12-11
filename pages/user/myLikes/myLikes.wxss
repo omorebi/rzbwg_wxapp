@@ -49,8 +49,8 @@ page {
 
 /* 删除按钮 */
 .delete_btn {
-    width: 40rpx;
-    height: 40rpx;
+    width: 33rpx;
+    height: 30rpx;
     position: absolute;
     right: 0;
     top: 24rpx;

@@ -1,0 +1,38 @@
+<!--pages/user/footPoint/footPoint.wxml-->
+<view class="foot_point_container">
+  <l-capsule-bar capsule-color="white" bg-color="none" bgColor="#053355" backGroungImg="" home-page='/pages/index/index'
+    titleColor="#ffffff" title="我的足迹"></l-capsule-bar>
+
+
+  <!-- 正式的足迹 -->
+  <view class="bg-view"></view>
+  <image class="zuji" mode="widthFix" src="/images/icon/zuji_weizhi.png"></image>
+ <view class="main" wx:if="{{list.length != 0}}">
+    <block wx:for-index="index" wx:for-item="dayItem" wx:for="{{list}}" wx:key="list">
+       <view class="start">
+        <text>{{dayItem.day}}</text>
+        <view class="short-line"></view>
+      </view>
+      <block wx:for-index="index" wx:for-item="item" wx:for="{{dayItem.list}}" wx:key="*this">
+        <view class="exhibit-box">
+          <view class="exhibit">
+            <image src="{{item.exhibit_img}}"></image>
+            <view class="{{index % 2 == 0 ? 'exhibit-text-right' : 'exhibit-text-left'}}  ">
+              <view>{{item.created_at}}</view>
+              <view>{{item.exhibit_name}}</view>
+            </view>
+          </view>
+          <view class="long-line"></view>
+        </view>
+      </block>
+    </block>
+
+    
+  </view>
+</view>
+<!-- <view class='nullBox' wx:if="{{list.length == 0 && showNullTip}}">
+  <view class='null'>
+    <image src='/images/null/kongneirong.png' mode="widthFix" lazy-load="true"></image>
+  </view>
+  <view class='nullTips'>您还没有浏览过展品，快去浏览展品吧~</view>
+</view> -->

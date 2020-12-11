@@ -1,27 +1,228 @@
-/* pages/user/question/question.wxss */
-.text_box {
-    width: 700rpx;
-    margin: 0 auto;
-    margin-top: 60rpx;
-    /* background-color: pink; */
+/**quesrtion.wxss**/
+page {
+  background-color: #F4F3F1;
+  background-image: var(--background-image);
+}
+
+.questionnaire {
+  position: relative;
+  padding: 60rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.container_box {
+  position: relative;
+  height: 820rpx;
+}
+
+/* 最上面一层 */
+.up-show {
+  position: absolute;
+  left: 50%;
+  top: 20rpx;
+  transform: translateX(-50%);
+  width: 650rpx;
+  height: 840rpx;
+  border-radius: 24rpx;
+  padding: 40rpx 50rpx;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  z-index: 3;
+  box-shadow: 0rpx 8rpx 15rpx 10rpx rgba(164, 164, 164, 0.35);
 
 }
 
-/* 问卷 */
-.question_box {
-    padding: 0 38rpx;
-    font-size: 30rpx;
-    color: #353535;
+.header {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #323232;
 }
-.qusetion_title {
-    line-height: 51rpx;
-    letter-spacing: 3rpx;
-    margin-bottom: 26rpx;
+
+.index {
+  color: #992E2D;
+  font-size: 40rpx
 }
-.group_box {
-    margin-top: 30rpx;
-    margin-bottom: 46rpx;
+
+/* 选项部分 */
+.options {
+  /* background-color: skyblue; */
+  margin-top: 60rpx;
+  max-height: 560rpx;
+  min-height: 200rpx;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-.radio_item {
-    margin-bottom: 20rpx;
+
+.options .options-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid #aeaeb8;
+  text-align: center;
+  transition: all 0.4s ease;
+  font-size: 34rpx;
+  text-align: center;
+  /*显示省略号*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.options .options-box:last-child {
+  margin-bottom: 0rpx;
+}
+
+.select-letter {
+  position: absolute;
+  top: 50%;
+  left: 10rpx;
+  transform: translateY(-50%);
+  width: 48rpx;
+  height: 48rpx;
+  font-size: 32rpx;
+  line-height: 48rpx;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #bc4018;
+}
+
+.options-item {
+  width: 100%;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 32rpx;
+  color: #323232;
+  /*显示省略号*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active {
+  width: 100%;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 32rpx;
+  color: #323232;
+  background-color: #992e2d !important;
+  color: #fff;
+  /*显示省略号*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* 当前进度 */
+.progress {
+  color: #323232;
+  height: 30rpx;
+  line-height: 30rpx;
+  position: absolute;
+  bottom: 50rpx;
+  right: 52rpx;
+  font-weight: 700;
+}
+
+
+
+
+
+/* 中间一层 */
+.second-page {
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  z-index: 2;
+  width: 600rpx;
+  height: 873rpx;
+  border-radius: 24rpx;
+  transform: translateX(-50%);
+  background-color: #fff;
+  opacity: 0.5;
+  box-shadow: 0px 8rpx 15rpx 10rpx rgba(164, 164, 164, 0.35);
+}
+
+/* 最下面一层 */
+.last-page {
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  z-index: 2;
+  width: 563rpx;
+  height: 895rpx;
+  border-radius: 24rpx;
+  transform: translateX(-50%);
+  background-color: #fff;
+  opacity: 0.5;
+  box-shadow: 0px 8rpx 15rpx 10rpx rgba(164, 164, 164, 0.35);
+}
+
+
+.but-con {
+  margin-top: 170rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.but-con view {
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #fff;
+  background: #992e2d;
+  border-radius: 24rpx;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+
+.but-con view:first-of-type {
+  margin-right: 10rpx;
+}
+
+
+/* 提交成功页 */
+.success_box {
+  font-size: 30rpx;
+  font-weight: 400;
+  text-align: center;
+  color: #45495e;
+}
+
+.success_box image {
+  width: 128rpx;
+  height: 89rpx;
+  display: block;
+  margin: 280rpx auto 60rpx auto;
+}
+
+.success_box .big_font {
+  font-weight: 400;
+  font-size: 48rpx;
+  text-align: center;
+  color: #45495e;
+  margin-bottom: 30rpx;
+}
+
+.return_btn {
+  width: 448rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: var(--font-theme-color);
+  border-radius: 24rpx;
+  box-shadow: 0px 2rpx 79rpx 9rpx rgba(100, 100, 100, 0.31);
+  margin: 0 auto;
+  margin-top: 180rpx;
 }

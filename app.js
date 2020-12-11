@@ -13,6 +13,7 @@ App({
         // 获取右上角胶囊的位置信息
         let info = wx.getMenuButtonBoundingClientRect() // { bottom: 58, height: 32, left: 278, right: 365, top: 26, width: 87 }，单位为 px
         this.globalData.pageWidth = e.windowWidth
+        this.globalData.ratio = 750/e.windowWidth // rpx 和px 换算比例
         this.globalData.pageHeight = e.windowHeight
         this.globalData.titleTop = info.top
         this.globalData.topHeight = info.top + 5 + info.height
@@ -33,14 +34,15 @@ App({
       height: 32,
       width: 87,
     },
+    ratio: 0, // rpx 和px 换算比例
     titleTop: 0,
     pageWidth: 0,
     pageHeight: 0,
     topHeight: 0,
     titleLineHeight: 0,
     height: 0, // 页面高度减去顶部导航
-    type: 0, // 全局存场馆列id 1===博物馆 2===美术馆
+    museum_id: 1, // 全局存场馆列id 1===博物馆 2===美术馆
     base_url: 'https://sapi.hnmuseum.com/hn_image/', // 图片资源线上base_url
-    thumbnail_url: 'https://sapi.hnmuseum.com', // 给缩略图用
+    thumbnail_url: 'http://192.168.10.159:12050', // 给缩略图用
   }
 })

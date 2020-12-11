@@ -1,66 +1,71 @@
 // pages/exhibition/detailExhibition/detailExhibition.js
+const app = getApp()
+import {
+    get_exhibition_detail
+} from '../../../apis/api_index.js';
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        id: 0,
+        bannerList: [],
+        info: {},
+        exhibitList: [],
+        scrollLeft: 0,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        console.log('哈哈哈', options.id)
+        this.data.id = options.id
+        this.getgetExhibitionDetail()
     },
-
     /**
-     * 生命周期函数--监听页面初次渲染完成
+     * 展品详情
      */
-    onReady: function () {
-
+    getgetExhibitionDetail() {
+        let that =this
+        let id = this.data.id 
+        let scrollLeft = 480/app.globalData.ratio
+        get_exhibition_detail(id).then(res => {
+            var data = res.data
+            console.log('展览详情', res.data)
+            that.setData({
+                bannerList: res.data.exhibition_info.exhibition_imgs,
+                info: res.data.exhibition_info,
+                exhibitList: res.data.exhibit_list,
+                scrollLeft: scrollLeft
+            })
+        });
     },
-
     /**
-     * 生命周期函数--监听页面显示
+     * 馆藏精品查看更多
      */
-    onShow: function () {
-
+    toExhibitionList() {
+        let id = this.data.id
+        wx.navigateTo({
+          url: '/pages/exhibition/exhibitsList/exhibitsList?id='+id,
+        }) 
     },
-
     /**
-     * 生命周期函数--监听页面隐藏
+     * 查看视频
      */
-    onHide: function () {
-
+    playMp4() {
+        let url = this.data.info.mp4_path
+        let title = this.data.info.exhibition_name
+        wx.navigateTo({
+          url: '/pages/exhibition/webView/webView?url=' +url+'&title='+title,
+        })
     },
-
     /**
-     * 生命周期函数--监听页面卸载
+     * 查看具体展品
      */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    toDetails(e) {
+        console.log(e.currentTarget.dataset.id)
+        let id = e.currentTarget.dataset.id
+        wx.navigateTo({
+          url: '/pages/exhibition/detailExhibits/detailExhibits?id='+id,
+        })
     }
 })

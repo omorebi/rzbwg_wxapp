@@ -1,5 +1,66 @@
 <!--pages/exhibition/detailExhibition/detailExhibition.wxml-->
-<back-home navName=""></back-home>
-<view>
-    展览详情页
+
+<view class="details_box">
+    <l-capsule-bar capsule-color="white" bg-color="none" backGroungImg="" home-page='/pages/index/index'>
+    </l-capsule-bar>
+    <view class="banner">
+        <swiper class="carousel" indicator-dots="{{ false }}" autoplay="{{ true }}" interval="{{ 3000 }}"
+            duration="{{ 1000 }}" circular="true" circular="true" indicator-color="rgba(255, 255, 255, .5)"
+            indicator-active-color="#932D2C">
+            <swiper-item class="swiper_item" wx:for="{{ bannerList }}" wx:for-item="item" wx:key="index">
+                <cropImg src="{{ item }}" width="1500" height="970"></cropImg>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 文字介绍部分 -->
+    <view class="info_contaniner">
+        <view class="detail_info">
+            <view class="exhibition_title">{{ info.exhibition_name }}</view>
+            <view class="grey_box">
+                <view>展期：{{ info.show_time }}</view>
+                <view>展厅：{{ info.exhibition_address }}</view>
+                <view>票价：{{ info.price }}</view>
+            </view>
+            <!-- 视频部分 -->
+            <view class="mp4_box" hidden="{{ info.mp4_path =='' }}" bindtap="playMp4">
+                <image src="{{ info.mp4_img_path }}" class="mp4_box_img"></image>
+                <image src="/images/icon/play_btn.png" class="play_btn"></image>
+            </view>
+
+            <!-- 展览介绍 -->
+            <view class="title_icon">
+                <view>展览介绍</view>
+                <image src="/images/icon/down.png"></image>
+            </view>
+            
+            <view class="des_content">
+                <htmlParser html="{{ info.content }}" isNoStyle="true" />
+            </view>
+        </view>
+        <view class="common-line"></view>
+
+        <!-- 馆藏精品=== 美术馆的标题不一样，mark -->
+        <view class="exhibition_box">
+            <view class="nav_title">
+                <view class="left">
+                    <image src="/images/icon/round.png" class="nav_icon"></image>
+                    <text>馆藏精品</text>
+                </view>
+                <view class="right" bindtap="toExhibitionList">更多 ></view>
+            </view>
+            <!-- ！！！！！！坑 -->
+            <scroll-view class="scroll_box" scroll-x scroll-left="{{ scrollLeft }}">
+                <block wx:for="{{ exhibitList }}" wx:for-item="item" wx:key="*this">
+                    <view class="exhibition_item" bindtap="toDetails" data-id="{{ item.exhibit_id }}">
+                        <view class='item_imgs'>
+                            <image src="{{ item.exhibit_list_img }}"></image>
+                        </view>
+                        <view class="exhibition_name">{{ item.exhibit_name }}</view>
+                    </view>
+                </block>
+            </scroll-view>
+
+        </view>
+    </view>
 </view>

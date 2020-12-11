@@ -1,2 +1,8 @@
 <!--pages/guide/guide.wxml-->
-<text>pages/guide/guide.wxml</text>
+<custom-logo textColor="#FEE29B"></custom-logo>
+<view class="floor-map-container">
+  <view class="image-container" wx:for="{{mapList}}" wx:for-item="item" wx:key="index" >
+    <text>{{ item.map_name }}</text>
+    <image id="{{ item.map_id }}" mode="widthFix" src="{{ item.png_map_path }}" bindtap="showFloorMap"></image>
+  </view>
+</view>

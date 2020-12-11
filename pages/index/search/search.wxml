@@ -1,0 +1,83 @@
+<!--pages/index/search/search.wxml-->
+<back-home navName="搜索"></back-home>
+<view class="container_box">
+
+  <!-- 搜索栏 start -->
+  <view class="header">
+    <view class="search_box">
+      <image class="search_image" src="{{ base_url + 'search_icon.png' }}"></image>
+      <input type='text' class="search_input" placeholder-class="search_input_placeholder" focus="{{ inputFocus }}"
+        confirm-type="search" bindinput="inputContent" bindconfirm='search' placeholder="输入内容进行搜索"
+        value="{{ content }}"></input>
+      <view class="cancel_image" hidden="{{ !cancelFlag }}" bindtap="onClear">
+        <image src="/images/cancel_icon.png"></image>
+      </view>
+    </view>
+    <view class="cancel_btn" bindtap="goBack">取消</view>
+  </view>
+  <!-- 搜索栏 end -->
+  <!-- 分割线 -->
+  <view class="my_line"></view>
+  <!-- step说明: 0为所谓结果为空页; 1为默认搜索页; 2为有搜索结果页;  -->
+
+  <!-- *** step == 1*** 默认搜索页 -->
+  <block wx:if="{{ step == 1 }}">
+    <!-- 搜索历史 start -->
+    <view class="historical_search" hidden="{{ historyList.length < 1 || searchFlag }}">
+      <view class="historical_search_title">
+        <view class="left">
+          <image src="/images/icon/history.png"></image>
+          <view>搜索历史</view>
+        </view>
+        <view class="right" bindtap="clearHistory">
+          <image src="/images/icon/delete.png"></image>
+        </view>
+      </view>
+      <!-- 内容 -->
+      <view class="historical_search_content">
+        <view class="historical_items" wx:for="{{ historyList }}" wx:for-item="item" wx:for-index="idx" wx:key="index">
+          <view bindtap="historySearch" id="{{idx}}">{{ item }}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 搜索历史 end -->
+  </block>
+
+  <!-- *** step == 2*** 正常搜索流程-有搜索结果 -->
+  <block wx:if="{{ step == 2 }}">
+    <!--  展品---搜索结果 start -->
+    <view class="historical_search" hidden="{{ searchData.exhibit_list.length < 1 }}">
+      <view class="historical_search_title">展品</view>
+      <!-- 内容 -->
+      <view class="historical_search_content">
+        <view class="historical_items" wx:for="{{ searchData.exhibit_list }}" wx:for-item="item" wx:for-index="idx"
+          wx:key="index">
+          <view bindtap="toHistoricalDeatil" data-id="{{item.exhibit_id}}">{{ item.exhibit_name }}</view>
+        </view>
+      </view>
+    </view>
+    <!--  展品---搜索结果 end -->
+
+    <!--  展览---搜索结果 start -->
+    <view class="historical_search" hidden="{{ searchData.exhibition_list.length < 1 }}">
+      <view class="historical_search_title">展览</view>
+      <!-- 内容 -->
+      <view class="historical_search_content">
+        <view class="historical_items" wx:for="{{ searchData.exhibition_list }}" wx:for-item="item" wx:for-index="idx"
+          wx:key="index">
+          <view bindtap="toExhibitionDeatil" data-id="{{item.exhibition_id}}">{{ item.exhibition_name }}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 展览---搜索结果 end -->
+  </block>
+
+  <!-- *** step == 0*** 搜索结果 为空 start -->
+  <block wx:if="{{ step == 0 }}">
+    <view class='nullBox'>
+      <image src="{{ base_url + 'null/search_null.png'}}" mode="widthFix"></image>
+      <view class="nullTips">搜索结果为空，换个关键词试试吧</view>
+    </view>
+  </block>
+  <!-- 搜索结果 为空 end -->
+</view>

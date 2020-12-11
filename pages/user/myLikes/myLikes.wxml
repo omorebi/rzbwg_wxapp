@@ -1,18 +1,27 @@
 <!--pages/user/myLikes/myLikes.wxml-->
+<import src="/template/loading/loading.wxml" />
 <back-home navName="我的点赞"></back-home>
 <view class="container_box">
     <block wx:for="{{ likeList }}" wx:for-item="item" wx:key="*this">
-        <view class="like_items" bindtap="toDetail" data-id="{{ item.id }}">
+        <view class="like_items" catchtap="toDetailExhibit" data-id="{{ item.exhibit_id }}">
             <view class="item_left">
-                <image class="" src="/images/e1.png"></image>
+                <image class="" src="{{ item.exhibit_img }}"></image>
             </view>
             <view class="item_right">
-                <view class="name">{{ item.name }}</view>
-                <view class="date">{{ item.time }}</view>
+                <view class="name">{{ item.exhibit_name }}</view>
+                <view class="date">{{ item.created_at }}</view>
                 <!-- 删除按钮 -->
-                <image src="/images/delete2.png" class="delete_btn" bindtap="deleteLike" data-id="{{ item.id }}"></image>
+                <image src="/images/icon/delete.png" class="delete_btn" catchtap="deleteLike"
+                    data-id="{{ item.exhibit_id }}">
+                </image>
             </view>
         </view>
     </block>
 </view>
-
+<view class="not-more" hover-class="none" hover-stop-propagation="false">
+    <text class="" selectable="false" space="false" decode="false">— 没有更多了 —</text>
+</view>
+<!-- IntersectionObserver 下拉加载更多-->
+<view class="observer-el" wx:if="{{!notMore}}">
+    <template is="loadingMore"></template>
+</view>

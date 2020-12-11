@@ -1,29 +1,30 @@
 <!--pages/index/visitInfo/visitInfo.wxml-->
 <back-home navName="参观须知"></back-home>
 <view class="container_box">
-    <image src="/images/index/i2.png" class="heard_img"></image>
+    <image src="{{ info.cgxz_img }}" class="heard_img"></image>
     <!-- 文字部分 -->
     <view class="text_box">
         <!-- 开放时间start--- -->
         <view class="title_box">
+            <image src="/images/icon/square.png" class="square_img"></image>
             <text>开放时间</text>
         </view>
         <!-- timer -->
         <view class="timer_box">
             <view class="timer_item">
-                <view class="red_left">09:00</view>
+                <view class="red_left">{{ info.kg_time }}</view>
                 <view class="white_right">开馆时间</view>
             </view>
             <view class="timer_item">
-                <view class="red_left">16:00</view>
+                <view class="red_left">{{ info.tzrg_time }}</view>
                 <view class="white_right">停止入馆</view>
             </view>
             <view class="timer_item">
-                <view class="red_left">16:30</view>
+                <view class="red_left">{{ info.gztc_time }}</view>
                 <view class="white_right">观众退场</view>
             </view>
             <view class="timer_item">
-                <view class="red_left">17:00</view>
+                <view class="red_left">{{ info.bg_time }}</view>
                 <view class="white_right">闭馆时间</view>
             </view>
         </view>
@@ -32,25 +33,25 @@
         <!-- tips  start -->
         <view class="tips_box">
             <text class="round"></text>
-            <text>周一、周二闭馆（法定节假日除外）</text>
+            <text>{{ info.open_msg }}</text>
         </view>
 
         <view class="title_box">
+            <image src="/images/icon/square.png" class="square_img"></image>
             <text>门票价格</text>
         </view>
         <view class="price_info">
-            <view>全价：20元/人；半价：10元/人</view>  
-            <view>※免费范围：1.2以下儿童、60岁以上老年人（凭老年证） 、义务兵、革命伤残军人（凭有效证件）、残疾人（凭残疾证）免费参观。</view>  
-            <view>※优惠范围：大学生（不含成人教育）、中小学生、军人、社会保障金领取人员（凭有效证件）半价优惠。</view>
+            <htmlParser html="{{ info.mpjg }}" isNoStyle="true" />
         </view>
         <!-- tips  end -->
 
         <!-- 联系电话 start-->
         <view class="title_box">
+            <image src="/images/icon/square.png" class="square_img"></image>
             <text>联系电话</text>
         </view>
         <view class="phone_box">
-            <view class="phone_item" bindtap="phoneCall">0633-878814</view>
+            <view class="phone_item" bindtap="phoneCall">{{ info.phone }}</view>
         </view>
         <!-- 联系电话 end-->
     </view>

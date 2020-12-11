@@ -1,7 +1,7 @@
 <!--pages/index/trafficInfo/trafficInfo.wxml-->
 <back-home navName="交通信息"></back-home>
 <view class="container_box">
-    <image src="/images/index/i3.png" class="heard_img" bindtap="onTraffic"></image>
+    <image src="{{ info.jtxx_img }}" class="heard_img" bindtap="onTraffic"></image>
     <!-- 文字部分 -->
     <view class="traffic_box">
         <!-- 地址 -->
@@ -9,8 +9,7 @@
             <view>地址</view>
         </view>
         <view class="traffic_content">
-            <view>二号线阜成门站下车向东，约1000米；</view>
-            <view>四号线西四站下车向西，约500米。</view>
+            <htmlParser html="{{ info.dz }}" isNoStyle="true" />
         </view>
 
         <!-- 地铁线路 -->
@@ -18,8 +17,7 @@
             <view>地铁线路</view>
         </view>
         <view class="traffic_content">
-            <view>二号线阜成门站下车向东，约1000米；</view>
-            <view>四号线西四站下车向西，约500米。</view>
+            <htmlParser html="{{ info.dtlx }}" isNoStyle="true" />
         </view>
 
         <!-- 公交路线 -->
@@ -27,8 +25,7 @@
             <view>公交路线</view>
         </view>
         <view class="traffic_content">
-            <view>二号线阜成门站下车向东，约1000米；</view>
-            <view>四号线西四站下车向西，约500米。</view>
+            <htmlParser html="{{ info.gjjl }}" isNoStyle="true" />
         </view>
     </view>
 </view>

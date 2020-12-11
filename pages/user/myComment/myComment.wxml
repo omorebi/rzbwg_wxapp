@@ -1,0 +1,37 @@
+<!--pages/user/myComment/myComment.wxml-->
+<import src="/template/loading/loading.wxml" />
+<back-home navName="我的评论"></back-home>
+<view class="container_box">
+    <block wx:for="{{ commentList }}" wx:for-item="item" wx:key="*this">
+        <view class="comment_items" catchtap="toDetailExhibit" data-id="{{ item.exhibit_id }}">
+            <view class="user_info">
+                <image class="info_left" src="{{ item.avatar }}"></image>
+                <view class="info_right">
+                    <view class="nike_name">{{ item.nickname }}</view>
+                    <view class="date">{{ item.created_at }}</view>
+                </view>
+            </view>
+            <!-- 留言内容 不能设置高 -->
+            <view class="content">{{ item.comment }}</view>
+            <!-- 具体展品内容 -->
+            <view class="exhibits_box">
+                <image src="{{ item.exhibit_img }}" class="exhibit_img"></image>
+                <view class="mr24">
+                    <view class="exhibit_name">{{ item.exhibit_name }}</view>
+                    <view class="exhibit_content">{{ item.content }}</view>
+                </view>
+            </view>
+
+            <!-- 删除按钮 -->
+            <image src="/images/icon/delete.png" class="dele_btn" catchtap="toDelete" data-id="{{ item.comment_id }}">
+            </image>
+        </view>
+    </block>
+    <view class="not-more" hover-class="none" hover-stop-propagation="false">
+        <text class="" selectable="false" space="false" decode="false">— 没有更多了 —</text>
+    </view>
+    <!-- IntersectionObserver 下拉加载更多-->
+    <view class="observer-el" wx:if="{{!notMore}}">
+        <template is="loadingMore"></template>
+    </view>
+</view>

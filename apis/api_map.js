@@ -1,8 +1,9 @@
 const api = require('./request.js')
 module.exports = {
-  // 服务设施
-  getMapList: () => api.request('/api/road/map_list', 'get', {
-    p: 'wx',
+  // 地图列表
+  getMapList: (museum_id) => api.request('/api/map/map_list', 'get', {
+    p: 'wxmini',
+    museum_id: museum_id
   }),
 
   getMapDetail: (mapId) => api.request('/api/road/map_detail', 'get', {

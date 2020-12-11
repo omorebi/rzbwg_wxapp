@@ -1,0 +1,183 @@
+<!--pages/index/exhibitionDeatils/historicalDeatil.wxml-->
+<wxs src="../../../utils/date.wxs" module="date"></wxs>
+<view class="details_box" style="padding-top: 500rpx">
+  <l-capsule-bar capsule-color="white" bg-color="none" backGroungImg="" home-page='/pages/index/index'></l-capsule-bar>
+  <view class="banner">
+    <swiper class="banner_box" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}"
+      circular="true" bindchange="swiperChange">
+      <swiper-item class="swiper_item" wx:for="{{ carousel }}" wx:for-item="item" wx:for-index="i" wx:key="index"
+        bindtap="showZtsj">
+        <view class="carousel_image" data-i="{{i}}">
+          <cropImg src="{{ item }}" width="1500" height="1226" mode="scaleToFill"></cropImg>
+        </view>
+      </swiper-item>
+    </swiper>
+    <!-- 页数显示 -->
+    <view class="swiper_num">{{ currentIndex }}<text>/</text>{{ carousel.length }}</view>
+  </view>
+  <!-- 语音播放进度条 start -->
+  <view class='progress_box'>
+    <view class="progress_box_bj">
+      <view class="progress_view" style="width:calc(750rpx * {{cur.progress / 100}} + 10rpx)"></view>
+    </view>
+    <movable-area class="movable__area">
+      <movable-view bindchange="seekTouchMove" bindtouchend="seekTouchEnd" direction="horizontal" x="{{cur.slideX}}"
+        damping="1000" class="movable__view">
+        <text>{{date.audioTime(cur.currentTime)}}/{{date.audioTime(cur.duration)}}</text>
+      </movable-view>
+    </movable-area>
+  </view>
+  <!-- 语音播放进度条 end -->
+
+
+  <!-- 展品详情介绍 -->
+  <view class="info_container">
+    <!-- 工具栏 start -->
+    <view class="header_tools_box">
+      <!-- 如果有视频的话 -->
+      <image src="/images/exhibit/video_play.png" class="video_play" wx:if="{{ exhibitInfo.mp4_path !==''}}" bindtap="toWebView" data-index='{{ 1 }}'></image>
+
+      <view class="tools_btn">
+        <!-- 上一个 -->
+        <image src="/images/exhibit/pre.png" class="previous_btn" bindtap="playPre"></image>
+        <!-- 播放按钮 -->
+        <view class="play_btn" bindtap="playAudio">
+          <image src="/images/exhibit/{{cur.playing?'big_play.png':'big_stop.png'}}"></image>
+        </view>
+        <!-- 下一个 -->
+        <image src="/images/exhibit/next.png" class="next_btn" bindtap="playNext"></image>
+      </view>
+    </view>
+    <!-- 工具栏 end -->
+    <view class="common-line"></view>
+
+    <!-- 介绍部分 start -->
+    <view class="introduce_box">
+      <view class="main_box">
+        <view class="content {{ isFolded ? 'hide': '' }}">
+          <view class="content_nav">
+            <view class="title">{{ title }}</view>
+            <!-- 收藏 + 分享 -->
+            <view class="collection_share">
+              <view class="collection_share_item" bindtap="onCollect">
+                <image src="/images/exhibit/{{ icollected == 1 ? 'collection_i.png' : 'collection.png' }}"></image>
+                <text class="mr5">收藏</text>
+              </view>
+              <view class="collection_share_item" bindtap="openShareWindow">
+                <image src="/images/exhibit/share_icon.png"></image>
+                <text>分享</text>
+              </view>
+            </view>
+          </view>
+          <!--  规格 -->
+          <view class="specifications">
+            <view class="specifications_left">
+              <view>{{ detailData.years }}</view>
+              <view>{{ detailData.size }}</view>
+              <view>{{ detailData.out_address }}</view>
+            </view>
+            <view class="specifications_right" bindtap="toGuide">查看位置</view>
+          </view>
+          <view class="detail_info">
+            <htmlParser html="{{ detailData.content }}" isNoStyle="true" />
+          </view>
+        </view>
+        <view class="state {{ isFolded?'nofold':'fold' }}" bindtap="toggleFold">
+          <image class="arrow" wx:if="{{isFolded}}" src="/images/exhibit/fold_arrow.png"></image>
+          <image class="arrow" wx:else="{{!isFolded}}" src="/images/exhibit/fold_arrow_up.png"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 介绍部分 end -->
+    <view class="common-line"></view>
+
+
+
+    <!-- 三维环视 end -->
+    <view class="common-line" hidden="{{ exhibitInfo.mp4_path=='' }}"></view>
+
+
+    <!-- 三维环视 start -->
+    <view class="public_box" hidden="{{ exhibitInfo.web3d_url=='' }}">
+      <view class="public_box_title">三维环视</view>
+      <view class="public_box_content" bindtap="toWebView" data-index='{{ 2 }}'>
+        <image src="{{ exhibitInfo.mp4_img_path }}" class="bigImg"></image>
+      </view>
+    </view>
+    <!-- 三维环视 end -->
+    <view class="common-line" hidden="{{ exhibitInfo.web3d_url=='' }}"></view>
+
+    <!-- 留言评论 start  -->
+    <view class="comment_box" id="comment" hidden="{{ commentNum < 1}}">
+      <view class="comment_box_title">
+        <text>留言评论</text>
+        <text class="comment_num">（{{ commentNum }}）</text>
+      </view>
+      <!-- 评论 -->
+      <view class="comment_item" wx:for="{{ list }}" wx:for-item="item" wx:key="index">
+        <view class="avatar">
+          <view class="avatar">
+            <!-- 头像为空，显示默认头像 -->
+            <image src="{{ item.avatar }}" hidden="{{ item.avatar == ''}}"></image>
+            <image src="{{ base_url+'avatar.png' }}" hidden="{{ item.avatar !== ''}}"></image>
+          </view>
+        </view>
+        <view class="comment_content">
+          <view class="name">{{ item.nickname }}</view>
+          <view class="date">{{ item.datetime }}</view>
+          <view class="comment_info">{{ item.comment }}</view>
+        </view>
+      </view>
+      <view class="look_more" wx:if="{{ !notMore }}" bindtap="moreComment">查看更多评论</view>
+      <view class="look_more" wx:if="{{ notMore }}">— 没有更多了 —</view>
+    </view>
+    <!-- 留言评论 end-->
+  </view>
+
+
+
+  <!-- 固定的评论框 -->
+  <view class="write_box">
+    <view class="input-box">
+      <image style="width:29rpx;height:27rpx;margin-left:20rpx;" src="/images/exhibit/write.png">
+      </image>
+      <input class="comment_input" placeholder-class="placeholder" type="text" placeholder="写下你的留言" maxlength="200"
+        confirm-type="commentSumbit" bindinput="inputContent" bindconfirm='commentSumbit'
+        value="{{ commentContent }}" />
+    </view>
+    <view class="tools_box">
+      <view class="btn_box" bindtap="toComment">
+        <image src="/images/exhibit/comment.png"></image>
+        <view class="num">{{ commentNum }}</view>
+      </view>
+      <view class="btn_box" bindtap="toLike">
+        <image src="/images/exhibit/{{ iliked == 1 ? 'like_i.png' : 'like.png' }}"></image>
+        <view class="num">{{ like_num }}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 语种选择器 -->
+<view class="language_box" wx:if="{{ isset_english ==1 }}">
+  <view class="english_box {{ languageCurrent ==2 ? ' active' : ''}}" bindtap="changelanguage" data-index="2">EN</view>
+  <view class="chinese_box {{ languageCurrent ==1 ? ' active' : ''}}" bindtap="changelanguage" data-index="1">中</view>
+</view>
+
+
+<!-- popup 分享弹窗 -->
+<l-popup show="{{ shareWindowFlag }}" content-align="bottom">
+  <view class="share_window_content">
+    <view class="btn_box">
+      <button class="share_btn" open-type='share'>
+        <image src="/images/exhibit//wechat.png"></image>
+        <view>分享给微信好友</view>
+      </button>
+      <view class="share_btn" bindtap="toShareCard">
+        <image src="/images/exhibit/share2.png"></image>
+        <view>生成分享卡</view>
+      </view>
+    </view>
+    <view class="window_content_btn" bindtap="closeShareWindow">取消</view>
+  </view>
+</l-popup>

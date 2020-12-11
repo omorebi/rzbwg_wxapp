@@ -24,14 +24,14 @@ Page({
 
   },
   /**
-   * 湘博动态详情
+   * 动态详情
    */
   getNewsDetail(e) {
     let that = this
     get_news_detail(e).then(res => {
-      // console.log('动态详情', res.data)
+      console.log('动态详情', res.data)
       that.setData({
-        news: res.data.news
+        news: res.data
       })
     });
   }

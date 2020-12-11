@@ -1,4 +1,6 @@
+import { base_url } from "../apis/globalData";
 
+const app = getApp();
 /**
  * 防止重复点击 防抖节流
  */
@@ -135,7 +137,78 @@ function compareVersion(v2) {
   return 0
 }
 
-//-------------------
+/**
+ * 微信登录
+ */
+function login(avatar, nickname) {
+  return new Promise((resolve, reject) => {
+    wxGetCode().then(res => userLogin(res, avatar, nickname)).then(res => {
+      resolve(res)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
+function wxGetCode() {
+  return new Promise((resolve, reject) => {
+    wx.login({
+      success: function (res) {
+        resolve(res.code)
+        console.log("code值" + res.code);
+      },
+      fail: function (msg) {
+        reject(msg);
+        console.info(msg);
+      }
+    });
+  })
+}
+
+function userLogin(code, avatar, nickname) {
+  wx.request({
+    url: base_url + "/api/users/login_mini",
+    data: {
+      p: 'wxmini',
+      code: code,
+      avatar: avatar,
+      nickname: nickname,
+    },
+    method: 'POST',
+    header: {
+      'Accept': 'application/json' // 默认值
+    },
+    success: function (res) {
+      console.log("token值" + res.data.data.api_token + "== 登录成功==");
+      var api_token = res.data.data.api_token;
+      wx.setStorage({
+        key: "api_token",
+        data: api_token,
+      });
+      wx.setStorage({
+        data: res.data.data.openid,
+        key: 'openid',
+      })
+      let userInfo = {
+        nickName: res.data.data.nickname,
+        avatarUrl: res.data.data.avatar,
+      }
+      wx.setStorage({
+        data: userInfo,
+        key: 'userInfo',
+      })
+      app.globalData.openid = res.data.data.openid
+      app.globalData.api_token = api_token;
+    },
+    fail: msg => {
+      wx.showModal({
+        title: '服务器繁忙，请稍后再试',
+        showCancel: false,
+      });
+      console.log(msg);
+    }
+  });
+}
 
 
 
@@ -144,4 +217,5 @@ module.exports = {
   formatDate,
   compareVersion,
   toObj,
+  login
 }

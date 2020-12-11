@@ -2,10 +2,10 @@
 <view class="container_box">
   <!-- 公共logo组件 -->
   <custom-logo textColor="#FEE29B"></custom-logo>
-  <!-- 搜索栏 start -->
+  <!-- 搜索栏 start  -->
   <view class="search-box">
     <view class="search-bg" bindtap="toSearchPage">
-      <image class="search-image" src="{{ base_url + 'search_icon.png' }}"></image>
+      <image class="search-image" src="/images/icon/serach.png"></image>
       <text>请输入关键字搜索</text>
     </view>
   </view>
@@ -14,8 +14,8 @@
   <view class="banner_box">
     <swiper class="carousel" indicator-dots="{{ false }}" autoplay="{{ true }}" interval="{{ 3000 }}"
       duration="{{ 1000 }}" circular="true" bindchange="swiperChange">
-      <swiper-item class="swiper-item" wx:for="{{ bannerList }}" wx:for-item="item" wx:key="index">
-        <cropImg src="{{ item.home_img }}" width="1380" height="1380" data-id="{{ item.id }}"
+      <swiper-item class="swiper_item" wx:for="{{ bannerList }}" wx:for-item="item" wx:key="index">
+        <cropImg src="{{ item.exhibit_list_img }}" width="1380" height="1380" data-id="{{ item.exhibition_id }}"
           bindtap="toDetailExhibitions"></cropImg>
       </swiper-item>
     </swiper>
@@ -43,8 +43,8 @@
   <view class="dynamic_box" hidden="{{ dynamicList.length<1 }}">
     <view class="nav_title">
       <view class="left">
-        <view>馆务动态</view>
-        <!-- <image src="/images/n2.png" class="nav_icon"></image> -->
+        <image src="/images/icon/round.png" class="nav_icon"></image>
+        <text>馆务动态</text>
       </view>
       <view class="right" bindtap="toDynamicList">更多 ></view>
     </view>
@@ -52,15 +52,35 @@
     <view class="dynamic_main">
       <view class="dynamic_content">
         <block wx:for="{{ dynamicList }}" wx:for-item="item" wx:key="*this">
-          <view class="dynamic_item" bindtap="toDynamicDetail" data-id="{{ item.id }}" wx:if="{{ index <=2 }}">
-            <view class="dynamic_name">{{item.title }}</view>
-            <view class="dynamic_des">
-              <view class="topping" wx:if="{{ item.is_top === 1 }}">置顶</view>
-              <text>日照博物馆</text>
-              <text class="greyLine"> | </text>
-              <text>{{ item.publish_date.y }}-{{ item.publish_date.m }}-{{ item.publish_date.d }}</text>
+          <!-- 没有图片的 上下布局 -->
+          <block wx:if="{{ item.default_img=='' }}">
+            <view class="dynamic_item" bindtap="toDynamicDetail" data-id="{{ item.news_id }}">
+              <view class="dynamic_name">{{ item.title }}</view>
+              <view class="dynamic_des">
+                <text>{{ item.museum_title }}</text>
+                <text class="greyLine"> | </text>
+                <text>{{ item.created_at }}</text>
+              </view>
             </view>
-          </view>
+          </block>
+
+          <!-- 有图片的 左右布局 -->
+          <block wx:if="{{ item.default_img !=='' }}">
+            <view class="dynamic_item_type2" bindtap="toDynamicDetail" data-id="{{ item.news_id }}">
+              <view class="type2_left">
+                <image src="{{ item.default_img }}"></image>
+              </view>
+              <view class="type2_right">
+                <view class="title">同心同德 凝心聚力 推动我市社科工作迈上新台阶 ——市同心同德 凝心聚力 推动我市社科工作迈上新</view>
+                <view class="des">
+                  <text>{{ item.museum_title }}</text>
+                  <text class="greyLine"> | </text>
+                  <text>{{ item.created_at }}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+
         </block>
       </view>
     </view>
@@ -72,21 +92,22 @@
   <view class="exhibition_box">
     <view class="nav_title">
       <view class="left">
-        <view>馆藏精品</view>
-        <!-- <image src="/images/n1.png" class="nav_icon"></image> -->
+        <image src="/images/icon/round.png" class="nav_icon"></image>
+        <text>馆藏精品</text>
       </view>
-      <view class="right" bindtap="toExhibitionList">更多 ></view>
+      <view class="right" bindtap="toExhibitiList">更多 ></view>
     </view>
     <!-- ！！！！！！坑 -->
-    <scroll-view class="scroll-box" scroll-x scroll-left="{{ scrollLeft }}">
-      <block wx:for="{{ exhibitionList }}" wx:for-item="item" wx:key="*this">
-        <view class="exhibition_item" bindtap="toDetails" data-id="{{ item.id }}">
-          <view class='item-imgs'>
-            <image src="{{ item.home_img }}"></image>
+    <scroll-view class="scroll_box" scroll-x scroll-left="{{ scrollLeft }}">
+      <block wx:for="{{ exhibitList }}" wx:for-item="item" wx:key="*this">
+        <view class="exhibition_item" bindtap="toDetailExhibit" data-id="{{ item.exhibit_id }}">
+          <view class='item_imgs'>
+            <image src="{{ item.exhibit_list_img }}"></image>
           </view>
-          <view class="exhibition_name">{{ item.cate_name }}</view>
+          <view class="exhibition_name">{{ item.exhibit_name }}</view>
         </view>
       </block>
     </scroll-view>
+
   </view>
 </view>

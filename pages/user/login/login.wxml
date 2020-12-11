@@ -1,0 +1,8 @@
+<!--pages/user/login.wxml-->
+
+<view class="container">
+  <view class='top-img'> </view>
+  <button class='login-btn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" lang="zh_CN" >
+      微信授权登录
+  </button>
+</view>

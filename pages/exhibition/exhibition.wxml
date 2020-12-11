@@ -1,5 +1,122 @@
 <!--pages/exhibition/exhibition.wxml-->
-<back-home navName=""></back-home>
-<view>
-    <van-button type="warning" bindtap="toDetailExhibition">跳转至具体展览页</van-button>
+<view class="container_box">
+    <!-- 推荐展览 start -->
+    <swiper class="recommend_box" indicator-dots="{{false}}" autoplay="{{false}}" interval="{{3000}}"
+        duration="{{1000}}" circular="{{true}}" bindchange="recommendChange" current="{{ recommendCurrentIndex }}">
+        <block wx:for="{{ recommendList }}" wx:for-item="item" wx:key="index">
+            <swiper-item bindtap="toDetailExhibition" data-id="{{ item.exhibition_id }}">
+                <view class="header_img">
+                    <image src="{{ item.exhibit_list_img }}"></image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 推荐展览 end -->
+
+    <!-- 信息展示 -->
+    <view class="recommend_content">
+        <swiper class="content_swiper" indicator-dots="{{false}}" autoplay="{{false}}" interval="{{3000}}"
+            duration="{{1000}}" circular="{{true}}" bindchange="recommendChange" current="{{ recommendCurrentIndex }}">
+            <block wx:for="{{ recommendList }}" wx:for-item="item" wx:key="index">
+                <swiper-item data-id="{{ item.exhibition_id }}" class="content_item">
+
+                    <view class="left_img">
+                        <image src="/images/icon/recommend.png"></image>
+                    </view>
+
+                    <view class="right_content">
+                        <view>{{ item.exhibition_name }}</view>
+                        <view class="show_time">展期： {{ item.show_time }}</view>
+                    </view>
+
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- 自己写的面板指示点 -->
+        <view class="dots">
+            <block wx:for="{{ recommendList }}" wx:key="*">
+                <view class="dot{{index == recommendCurrentIndex ? ' active' : ''}}"></view>
+            </block>
+        </view>
+    </view>
+
+
+    <!-- 基本陈列 style="padding-top: 100rpx"-->
+    <view class="exhibition_box">
+        <view class="nav_title">
+            <view class="left">
+                <image src="/images/icon/square.png" class="nav_icon"></image>
+                <text>基本陈列</text>
+            </view>
+            <view class="right" bindtap="toExhibitionList">更多 ></view>
+        </view>
+        <!-- 轮播图部分 -->
+        <view class="basic_box">
+            <swiper class="carousel" indicator-dots="{{false}}" autoplay="{{false}}" interval="{{3000}}"
+                duration="{{1000}}" previous-margin="85rpx" next-margin="85rpx" circular="{{true}}"
+                bindchange="swiperChange">
+                <block wx:for="{{ basicList }}" wx:for-item="item" wx:key="index">
+                    <swiper-item class="swiper_item" bindtap="toDetailExhibition" data-id="{{ item.exhibition_id }}">
+                        <view class="swiper_content_box {{ currentIndex == index ? 'active' : 'quiet'}}">
+                            <view class="carousel_image">
+                                <image src="{{ item.exhibit_list_img }}"></image>
+                            </view>
+                            <view class="carousel_name">
+                                <view>{{ item.exhibition_name }}</view>
+                                <view class="address">展览地点：{{ item.exhibition_address }}</view>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+    </view>
+    <view class="common-line"></view>
+
+
+    <!-- 临时展览 -->
+    <view class="exhibition_box">
+        <view class="nav_title">
+            <view class="left">
+                <image src="/images/icon/square.png" class="nav_icon"></image>
+                <text>临时展览</text>
+            </view>
+            <view class="right" bindtap="toExhibitionList">更多 ></view>
+        </view>
+        <scroll-view class="temporary_box" scroll-x>
+            <block wx:for="{{ temporaryList }}" wx:for-item="item" wx:key="*this">
+                <view class="temporary_item" bindtap="toDetailExhibition" data-id="{{ item.exhibition_id }}">
+                    <view class='item_imgs'>
+                        <image src="{{ item.exhibit_list_img }}"></image>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="common-line"></view>
+
+
+    <!-- 虚拟博物馆 -->
+    <view class="exhibition_box" wx:if="{{ virtualMuseum.length>=1 }}">
+        <view class="nav_title">
+            <view class="left">
+                <image src="/images/icon/square.png" class="nav_icon"></image>
+                <text>虚拟博物馆</text>
+            </view>
+            <view class="right" bindtap="toExhibitionList">更多 ></view>
+        </view>
+        <scroll-view class="museum_scroll_box" scroll-x scroll-left="{{ scrollLeft }}">
+            <block wx:for="{{ virtualMuseum }}" wx:for-item="item" wx:key="*this">
+                <view class="museum_item" bindtap="toDetailOverallView" data-id="{{ item.view_id }}">
+                    <view class='item_imgs'>
+                        <image src="{{ item.default_img }}"></image>
+                    </view>
+                    <view class="museum_name">{{ item.title }}</view>
+                    <!-- 图标 -->
+                    <image src="/images/icon/round_2.png" class="round_img"></image>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="common-line"></view>
 </view>

@@ -38,7 +38,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.14.1",
-    "appid": "wx9114af2a3b2f9470",
+    "appid": "wxd53017f8a50570f0",
     "projectname": "%E6%97%A5%E7%85%A7%E5%8D%9A%E7%89%A9%E9%A6%86%E5%B0%8F%E7%A8%8B%E5%BA%8F",
     "debugOptions": {
         "hidedInDevtools": []
@@ -68,6 +68,72 @@
                 {
                     "name": "pages/exhibition/detailExhibition/detailExhibition",
                     "pathName": "pages/exhibition/detailExhibition/detailExhibition",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/exhibition/exhibition",
+                    "pathName": "pages/exhibition/exhibition",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/museumInfo/museumInfo",
+                    "pathName": "pages/index/museumInfo/museumInfo",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/exhibition/exhibitsList/exhibitsList",
+                    "pathName": "pages/exhibition/exhibitsList/exhibitsList",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/exhibition/detailExhibition/detailExhibition",
+                    "pathName": "pages/exhibition/detailExhibition/detailExhibition",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/exhibition/detailExhibits/detailExhibits",
+                    "pathName": "pages/exhibition/detailExhibits/detailExhibits",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/visitInfo/visitInfo",
+                    "pathName": "pages/index/visitInfo/visitInfo",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/exhibition/detailExhibition/detailExhibition",
+                    "pathName": "pages/exhibition/detailExhibition/detailExhibition",
+                    "query": "id=4",
+                    "scene": null
+                },
+                {
+                    "name": "pages/exhibition/exhibition",
+                    "pathName": "pages/exhibition/exhibition",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/question/question",
+                    "pathName": "pages/user/question/question",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/guide/guide",
+                    "pathName": "pages/guide/guide",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/footPoint/footPoint",
+                    "pathName": "pages/user/footPoint/footPoint",
                     "scene": null
                 }
             ]

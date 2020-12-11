@@ -1,0 +1,129 @@
+/* pages/register/index.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.top-img {
+  width: 360rpx;
+  height: auto;
+  margin-top: -32vh;
+}
+
+.top-img image {
+  width: 100%;
+  height: auto;
+}
+
+.login-btn {
+  width: 600rpx;
+  background: rgba(28, 172, 25, 1);
+  border-radius: 10rpx;
+  margin: 82rpx auto 30rpx auto;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+  border-radius: 45rpx;
+  margin-top: 170rpx;
+}
+
+button[disabled].login-btn {
+  background: rgba(28, 172, 25, .6);
+  color: #ffffff;
+}
+
+
+.phone {
+  text-align: center;
+  color: #6C7A90;
+  font-size: 32rpx;
+}
+
+.tips {
+  position: absolute;
+  bottom: 46rpx;
+  left: 0;
+  text-align: center;
+  width: 750rpx;
+  font-size: 20rpx;
+  color: #818282;
+}
+
+.phone-Md {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .4)
+}
+
+.md-Box {
+  position: absolute;
+  top: 200rpx;
+  left: 110rpx;
+  width: 532rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.titles {
+  font-size: 34rpx;
+  line-height: 84rpx;
+}
+
+.content {
+  border-top: 1px solid rgba(156, 156, 156, .18);
+  border-bottom: 1px solid rgba(156, 156, 156, .18);
+  padding: 0 60rpx;
+}
+
+.content .imgs {
+  margin: 40rpx 0;
+}
+
+.imgs image {
+  width: 94rpx;
+  height: 94rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.content .a {
+  font-size: 30rpx;
+  border-bottom: 1px solid rgba(156, 156, 156, .18);
+  padding-bottom: 35rpx;
+}
+
+.content .b {
+  font-size: 28rpx;
+  padding-top: 30rpx;
+  padding-bottom: 70rpx;
+  color: #787878;
+}
+
+.btn-box {
+  overflow: hidden;
+}
+
+.btn-box .btns {
+  float: left;
+  width: calc(50% - 1px);
+  line-height: 92rpx;
+}
+
+.btn-box button.btns {
+  background: #ffffff;
+  border: 0;
+  color: #EE8E41;
+  border-left: 1px solid rgba(156, 156, 156, .18);
+  border-radius: 0;
+}

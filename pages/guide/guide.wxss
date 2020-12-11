@@ -1,1 +1,32 @@
 /* pages/guide/guide.wxss */
+page {
+  letter-spacing: 2rpx;
+}
+
+.floor-map-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.floor-map-container {
+  width: 100%;
+}
+
+.image-container {
+  width: 100vw;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+text {
+  position: absolute;
+  font-size: 81rpx;
+  font-weight: 800;
+  color: #992E2D;
+  right: 70rpx;
+
+}

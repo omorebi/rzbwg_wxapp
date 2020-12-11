@@ -5,30 +5,14 @@ import {
 } from '../../../apis/api_index.js';
 Page({
     data: {
-        bannerList: [{
-                id: 0,
-                title: '日照博物馆关于疫情期间参观须知',
-                imgUrl: '/images/index/i4.png'
-            },
-            {
-                id: 1,
-                title: '日照博物馆关于疫情期间参观须知',
-                imgUrl: '/images/index/i4.png'
-            },
-            {
-                id: 2,
-                title: '日照博物馆关于疫情期间参观须知',
-                imgUrl: '/images/index/i4.png'
-            }
-        ],
+        bannerList: [], // 轮播图
         currentIndex: 0, // 轮播图当前索引
         tabList: ['本馆新闻', '工作动态'], //tab
         tabIndex: 0, // tab当前索引
         notMore: false, // 加载更多
         page: 1,
         limit: 10,
-        list: [], // 全部数据
-        dynamicList: [],
+        list: [],
     },
 
     /**
@@ -36,51 +20,69 @@ Page({
      */
     onLoad: function (options) {
         this.getNewsList()
+        this.loadMore();
     },
     /**
-     * 页面上拉触底事件的处理函数
+     * 生命周期函数--监听页面卸载
      */
-    onReachBottom: function () {
-        let that = this;
-        if (!that.data.notMore) {
-            that.data.page++;
-            that.getNewsList()
-        }
+    onUnload: function () {
+        //离开页面是停止播放音乐
+        wx.getBackgroundAudioManager().stop();
+        // 停止对下拉加载的监听
+        this._observer && this._observer.disconnect();
     },
     /**
-     * 获取湘博动态列表
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+        this.backgroundAudioManager.stop();
+        // 停止对下拉加载的监听
+        this._observer && this._observer.disconnect();
+    },
+    /**
+     * 滚动到底部加载更多
+     */
+    loadMore() {
+        this._observer = wx.createIntersectionObserver(this);
+        this._observer.relativeToViewport().observe('.observer-el', res => {
+            // 下来到底部
+            if (res.intersectionRatio > 0) {
+                this.getNewsList();
+            }
+        });
+    },
+    /**
+     * 获取动态列表
      */
     getNewsList() {
         let that = this
+        let museum_id = app.globalData.museum_id
+        let type = this.data.tabIndex + 1
         var {
             page,
-            limit
+            limit,
+            list
         } = that.data;
-        get_news_list(page, limit).then(res => {
-            var data = res.data.news.list
+        get_news_list(museum_id, type, page, limit).then(res => {
+            var data = res.data.news_list
             console.log('全部动态', res.data)
-            // 接下来的这一串都是为了要一条设计觉得好看的线--哎
-            if (page == 1) {
-                var num = 0
-                for (let i = 0; i < data.length; i++) {
-                    if (data[i].is_top == 1) {
-                        num = num + i;
-                    }
-                }
-                that.setData({
-                    toppingNum: num > 1 ? num : -1,
-                    toppingLine: num > 1 ? true : false,
-                })
-            }
-            // 正常操作
-            that.setData({
-                dynamicList: that.data.dynamicList.concat(res.data.news.list)
-            })
-            if (res.data.news.count == that.data.dynamicList.length) {
-                that.setData({
+            if (limit > data.length) {
+                this.setData({
+                    page: page *1+ 1,
+                    list: [...list, ...data], // es6合并数组
+                    bannerList: res.data.top_list,
                     notMore: true,
                 });
+                this._observer && this._observer.disconnect();
+            } else {
+                this.setData({
+                    page: page *1+ 1,
+                    list: [...list, ...data],
+                    bannerList: res.data.top_list,
+                    notMore: false,
+                });
             }
+
         });
     },
     /**
@@ -98,8 +100,9 @@ Page({
     changeTab(e) {
         let index = e.currentTarget.dataset.index
         this.setData({
-            tabIndex: index
+            tabIndex: index,
         })
+        this.getNewsList()
     },
     /**
      * 跳转至动态详情页

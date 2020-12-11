@@ -9,7 +9,7 @@ Page({
     base_url: app.globalData.base_url,
     thumbnail_url: app.globalData.thumbnail_url, // 缩略图用
     bannerList: [], // 轮播图
-    currentIndex: 0, 
+    currentIndex: 0,
     scrollLeft: 0,
     menus: [{
         img: "/images/index/t1.png",
@@ -30,8 +30,8 @@ Page({
         id: 3
       }
     ],
-    // 展览
-    exhibitionList: [],
+    // 馆藏精品
+    exhibitList: [],
     // 动态
     dynamicList: []
   },
@@ -47,20 +47,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
   /**
    * 获取首页信息
    */
   getHomeData() {
     let that = this
-    get_home_data().then(res => {
-      // console.log('返回数据', res.data)
+    let museum_id = app.globalData.museum_id
+    let scrollLeft = 480/app.globalData.ratio
+    get_home_data(museum_id).then(res => {
+      console.log('返回数据', res.data)
       that.setData({
-        dynamicList: res.data.news,
-        exhibitionList: res.data.recommend_exhibitions,
-        bannerList: res.data.banners.exhibitions,
-        scrollLeft: 240
+        dynamicList: res.data.news_list,
+        exhibitList: res.data.exhibit_list,
+        bannerList: res.data.exhibition_list, // 轮播图里面都是展览
+        scrollLeft: scrollLeft
       })
     });
   },
@@ -69,8 +71,9 @@ Page({
    */
   toDetailExhibitions(e) {
     let id = e.currentTarget.dataset.id
+    console.log('id====', id)
     wx.navigateTo({
-      url: '/pages/index/exhibitionDeatils/exhibitionDeatil?id=' + id,
+      url: '/pages/exhibition/detailExhibition/detailExhibition?id=' + id,
     })
   },
   /**
@@ -84,10 +87,10 @@ Page({
       })
     }
     if (id == 1) {
-      console.log('建设中')
-      // wx.navigateTo({
-      //   url: '/pages/index/ticket/ticket',
-      // })
+      wx.showToast({
+        title: '建设中...',
+        icon: 'none'
+      })
     }
     if (id == 2) {
       wx.navigateTo({
@@ -101,15 +104,26 @@ Page({
     }
   },
   /**
-   * 湘博展览 查看全部
+   * 馆藏精品 查看全部
    */
   toExhibitionList() {
+    console.log('更多--馆藏精品，页面未知')
+    // wx.navigateTo({
+    //   url: '/pages/index/exhibitionList/exhibitionList',
+    // })
+  },
+  /**
+   * 跳转藏品详情
+   */
+  toDetailExhibit(e) {
+    let id = e.currentTarget.dataset.id;
+    console.log(id)
     wx.navigateTo({
-      url: '/pages/index/exhibitionList/exhibitionList',
+      url: '/pages/exhibition/detailExhibits/detailExhibits?id=' + id,
     })
   },
   /**
-   * 湘博动态 查看全部
+   * 动态 查看全部
    */
   toDynamicList() {
     wx.navigateTo({
@@ -121,19 +135,12 @@ Page({
    */
   toDynamicDetail(e) {
     let id = e.currentTarget.dataset.id;
+    console.log(id)
     wx.navigateTo({
       url: '/pages/index/dynamicList/dynamicDeatil?id=' + id,
     })
   },
-  /**
-   * 查看单个具体展览
-   */
-  toDetails(e) {
-    let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/index/exhibitionDeatils/exhibitionDeatil?id=' + id,
-    })
-  },
+  
   /**
    * 跳转至搜索页
    */

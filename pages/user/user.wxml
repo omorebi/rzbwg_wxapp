@@ -1,16 +1,16 @@
 <!--pages/ueser/user.wxml-->
 
 <!-- 1.未登录状态下 -->
-<!-- <view class="login_box" wx:if="{{!hasUserInfo}}" style="height:{{ height }}px">
+<view class="login_box" wx:if="{{!hasUserInfo}}" style="height:{{ height }}px">
   <custom-logo textColor="#FEE29B"></custom-logo>
-  <image src="{{ base_url +'login_img.png'}}" class="login_img"></image>
   <button class='login-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo" lang="zh_CN">微信授权登录</button>
-</view> -->
+</view>
 
-<!-- 公共logo组件 -->
-<custom-logo textColor="#FEE29B"></custom-logo>
+
 <!-- 2, 登录状态下 -->
-<view class="user_box">
+<view class="user_box" wx:else>
+  <!-- 公共logo组件 -->
+  <custom-logo textColor="#FEE29B" background="transparent"></custom-logo>
   <view class='header_box'>
     <!-- 用户信息 box -->
     <view class="user_info">
@@ -27,12 +27,12 @@
         <view class="line_box" bindtap="clickRow" data-index='{{ index }}'>
           <view class="list_items">
             <view class="left">
-              <image src="{{ base_url }}{{  item.icon }}" class="icon"></image>
+              <image src="{{  item.icon }}" class="icon"></image>
               <view>{{ item.title }}</view>
             </view>
             <view class="right">
               <view hidden="{{ item.badge < 1 }}">{{ item.badge }}</view>
-              <image src="{{ base_url + 'user/right.png' }}"></image>
+              <image src="/images/user/right.png"></image>
             </view>
           </view>
         </view>
@@ -40,27 +40,6 @@
 
     </view>
 
-
-  </view>
-</view>
-
-<!-- 授权手机号弹窗 -->
-<view class='phone-Md' wx:if="{{phoneMd}}">
-  <view class='md-Box'>
-    <view class='titles'>
-      微信授权
-    </view>
-    <view class='login-content'>
-      <view class='imgs'>
-        <image src='{{ base_url }}success_2.png' lazy-load='true'></image>
-      </view>
-      <view class='a'>微信授权成功</view>
-      <view class='b'>授权绑定你的手机号码</view>
-    </view>
-    <view class='btn-box'>
-      <view class='btns' bindtap='close'>拒绝</view>
-      <button class='btns' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">允许</button>
-    </view>
 
   </view>
 </view>

@@ -1,66 +1,39 @@
 // pages/index/museumInfo/museumInfo.js
+const app = getApp()
+import {
+    get_museum_des
+} from '../../../apis/api_index.js';
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        info: {},
+        currentIndex: 0,
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.getInfo()
     },
-
     /**
-     * 生命周期函数--监听页面初次渲染完成
+     * 获取本馆信息
      */
-    onReady: function () {
-
+    getInfo() {
+        let that = this
+        let museum_id = app.globalData.museum_id
+        get_museum_des(museum_id).then(res => {
+            // console.log('本馆信息', res)
+            that.setData({
+                info: res.data
+            })
+        });
     },
-
     /**
-     * 生命周期函数--监听页面显示
+     * 切换轮播图
      */
-    onShow: function () {
-
+    swiperChange: function (e) {
+        var that = this;
+        that.setData({
+            currentIndex: e.detail.current,
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

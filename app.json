@@ -1,6 +1,8 @@
 {
   "pages":[
+
     "pages/index/index",
+    "pages/index/search/search",
     "pages/index/museumInfo/museumInfo",
     "pages/index/visitInfo/visitInfo",
     "pages/index/trafficInfo/trafficInfo",
@@ -10,11 +12,17 @@
  
     "pages/exhibition/exhibition",
     "pages/exhibition/detailExhibition/detailExhibition",
+    "pages/exhibition/exhibitsList/exhibitsList",
+    "pages/exhibition/detailExhibits/detailExhibits",
+    "pages/exhibition/webView/webView",
     "pages/guide/guide",
     "pages/user/user",
+    "pages/user/login/login",
     "pages/user/question/question",
     "pages/user/feedback/feedback",
     "pages/user/myLikes/myLikes",
+    "pages/user/myComment/myComment",
+    "pages/user/footPoint/footPoint",
     "pages/user/myCollection/myCollection"
     
   ],
@@ -52,8 +60,8 @@
       {
         "pagePath": "pages/user/user",
         "text": "我的",
-        "iconPath": "images/tab_imgs/tab_05.png",
-        "selectedIconPath": "images/tab_imgs/tab_05_i.png"
+        "iconPath": "images/tab_imgs/tab_04.png",
+        "selectedIconPath": "images/tab_imgs/tab_04_i.png"
       }
     ]
   },

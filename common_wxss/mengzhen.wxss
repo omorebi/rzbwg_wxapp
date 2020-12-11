@@ -3,7 +3,7 @@
 /*  固定在底部的评论框 */
 .write_box {
   width: 750rpx;
-  height: 178rpx;
+  height: 150rpx;
   position: fixed;
   bottom: 0;
   display: flex;
@@ -13,9 +13,7 @@
   padding: 50rpx 40rpx;
   box-sizing: border-box;
   background-color: #fff;
-  border-top-left-radius: 48rpx;
-  border-top-right-radius: 48rpx;
-  box-shadow: -2rpx 2rpx 8rpx 9rpx rgba(0, 0, 0, 0.1);
+  box-shadow: -2rpx 2rpx 8rpx 9rpx rgba(0,0,0,0.1); 
 }
 
 .write_box .input-box {
@@ -66,13 +64,11 @@
 
 /* 留言评论 */
 .comment_box {
-  width: 670rpx;
-  margin: 30rpx auto;
+  margin: 0 auto;
   background-color: #fff;
   box-sizing: border-box;
-  border-radius: 20rpx;
   padding: 0 40rpx;
-  box-shadow: 0px 2rpx 16rpx 0px rgba(117, 53, 52, 0.19);
+
 }
 
 .comment_box_title {

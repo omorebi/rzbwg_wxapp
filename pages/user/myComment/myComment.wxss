@@ -1,0 +1,106 @@
+/* pages/user/myComment/myComment.wxss */
+.container_box {
+    padding-top: 50rpx;
+}
+.comment_items {
+    width: 686rpx;
+    min-height: 394rpx;
+    background: #ffffff;
+    border-radius: 15rpx;
+    box-shadow: 0px 2rpx 13rpx 0px rgba(161, 161, 161, 0.3);
+    padding: 20rpx;
+    box-sizing: border-box;
+    margin: 14rpx auto;
+    position: relative;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: row;
+    height: 74rpx;
+}
+
+.info_left {
+    width: 74rpx;
+    height: 74rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.info_right {
+    padding-left: 28rpx;
+}
+
+.nike_name {
+    font-size: 30rpx;
+    font-weight: 500;
+    text-align: left;
+    color: #383838;
+}
+
+.date {
+    font-size: 24rpx;
+    font-weight: 400;
+    text-align: left;
+    color: #b2b2b2;
+
+}
+
+.content {
+    padding: 20rpx;
+}
+
+/* 具体展品 */
+.exhibits_box {
+    width: 100%;
+    background-color: #f4f6fa;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.exhibit_img {
+    width: 260rpx;
+    height: 200rpx;
+    border-radius: 18rpx;
+}
+.mr24 {
+    padding-left: 24rpx;
+}
+.exhibit_name {
+    max-width: 313rpx;
+    height: 40rpx;
+    margin-top: 6rpx;
+    margin-bottom: 30rpx;
+    font-size: 34rpx;
+    font-weight: 400;
+    color: #353535;
+    letter-spacing: 2rpx;
+    /*显示省略号*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.exhibit_content {
+    width: 312rpx;
+    height: 100rpx;
+    font-size: 26rpx;
+    font-weight: 400;
+    color: #353535;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* 删除按钮 */
+.dele_btn {
+    width: 33rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 24rpx;
+    top: 27rpx;
+}

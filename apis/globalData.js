@@ -1,8 +1,8 @@
 let urlsA = [
-  "https://sapi.hnmuseum.com", //
-  "https://sapi.hnmuseum.com" //正式域名
-  // "http://192.168.10.159:10000",
-  // "http://192.168.10.159:10000",
+  // "https://sapi.hnmuseum.com", //
+  // "https://sapi.hnmuseum.com" //正式域名
+  "http://192.168.10.159:12050",
+  "http://192.168.10.159:12050",
 ];
 
 function base_urls() {

@@ -1,13 +1,31 @@
 <!--pages/selectVsenues/selectVsenues.wxml-->
 <view class="select-vsenues-box">
     <block wx:for="{{ vsenuesList }}" wx:for-item="item" wx:for-index="index">
-        <view class="img-box" data-id="{{ item.id }}" bindtap="chooseVsenues">
-            <image src="{{ item.imgUrl }}"></image>
-            <view class="vsenues-name"></view>
+        <view class="img_box" data-id="{{ item.museum_id }}" bindtap="chooseVsenues">
+            <image src="{{ item.default_img }}"></image>
+            <view class="vsenues_name">{{ item.title }}</view>
         </view>
     </block>
 
 
     <!-- 详细信息 -->
-    <view></view>
+    <view class="des_info" wx:if="{{ sameDes== true }}">
+        <view class="title">
+            <image src="/images/icon/timer_icon.png" class="timer_icon"></image>
+            <view>开放时间</view>
+        </view>
+        <!-- 开放时间 -->
+        <view class="content">{{ vsenuesList[0].open_time }}</view>
+    </view> 
+
+    <!-- 两个馆的开放时间不一致 -->
+    <view class="des_info" wx:if="{{ sameDes== false }}">
+        <view class="title">
+            <image src="/images/icon/timer_icon.png" class="timer_icon"></image>
+            <view>开放时间</view>
+        </view>
+        <!-- 开放时间 -->
+        <view class="content"><text>博物馆：</text>{{ vsenuesList[0].open_time }}</view>
+        <view class="content"><text>美术馆：</text>{{ vsenuesList[1].open_time }}</view>
+    </view>
 </view>

@@ -1,0 +1,136 @@
+/* pages/user/footPoint/footPoint.wxss */
+/* .foot_point_container {
+  position: relative;
+} */
+.main {
+  padding: 0rpx !important;
+
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.bg-view {
+  display: block;
+  background-image: url('https://kmycapp.jb.mil.cn/uploadfiles/xcxar/zuji_beijing.jpg');
+  background-repeat: no-repeat;
+  position: fixed;
+  /* background-size: 100%; */
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.zuji {
+  /* position: absolute; */
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  width: 45rpx;
+  z-index: 10;
+  margin-top: 30rpx;
+}
+
+.start {
+  z-index: 10;
+  /* margin-top: 100rpx; */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start image {
+  width: 45rpx;
+  z-index: 10;
+  margin-top: 30rpx;
+}
+
+.start text {
+  font-size: 28rpx;
+  padding: 10rpx 0;
+  z-index: 100;
+  color: #ffc77f;
+}
+
+.short-line {
+  width: 2rpx;
+  height: 30rpx;
+  background: white;
+  z-index: 100;
+}
+
+.exhibit-box {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exhibit {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 150rpx;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.exhibit image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  border: 2px solid #ffc77f;
+  margin-left: calc(50vw - 75rpx);
+}
+
+.exhibit-text-left {
+  position: absolute;
+  left: 10rpx;
+  text-align: right;
+  width: calc(50vw - 95rpx);
+  color: white;
+  font-size: 26rpx;
+}
+
+.exhibit-text-right {
+  position: absolute;
+  right: 10rpx;
+  text-align: left;
+  width: calc(50vw - 95rpx);
+  color: white;
+  font-size: 26rpx;
+}
+
+.long-line {
+  width: 2rpx;
+  height: 50rpx;
+  background: white;
+  z-index: 100;
+}
+
+.end {
+  z-index: 10;
+  margin-top: 20rpx;
+  width: 540rpx;
+  font-size: 30rpx;
+  font-weight: 800;
+  color: rgba(255, 199, 127, 1);
+  text-shadow: 2rpx 2rpx 10rpx rgba(68, 32, 0, 0.1);
+}
+
+.text {
+  z-index: 10;
+  width: 538rpx;
+  height: 82rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+  color: #ffc77f;
+  text-shadow: 1rpx 1rpx 5rpx 0rpx rgba(68, 32, 0, 0.1);
+  
+
+}

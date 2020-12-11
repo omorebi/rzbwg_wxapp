@@ -1,0 +1,32 @@
+<!--pages/exhibition/exhibitsList/exhibitsList.wxml-->
+<back-home navName="藏品列表"></back-home>
+<view class="container_box">
+    <!-- 搜索栏 start -->
+    <view class="search_box">
+        <view class="search_bg" bindtap="toSearchPage">
+            <image class="search_image" src="/images/icon/search_2.png"></image>
+            <text>输入展品名称进行搜索...</text>
+        </view>
+    </view>
+    <!-- 搜索栏 end -->
+
+    <block wx:for="{{ list }}" wx:for-item="item" wx:key="*this">
+        <view class="exhibits_item" catchtap="toDetails" data-id="{{ item.exhibit_id }}">
+            <view class="exhibits_left">
+                <image src="{{ item.exhibit_list_img }}"></image>
+            </view>
+            <view class="exhibits_right">
+                <view class="item_name">{{ item.exhibit_name }}</view>
+
+                <!-- 播放按钮 -->
+                <view class="play_box">
+                    <view class="controll {{ currentIndex === index ? 'active' : '' }}">
+                        <canvas type="2d" class="canvas" id="{{'play_controll_' + item.exhibit_id }}" data-index="{{ index }}" catchtap="handlerClick"></canvas>
+                    </view>
+                    <view class="timer">{{ item.audio_time_long}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+
+</view>

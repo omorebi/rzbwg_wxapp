@@ -1,17 +1,18 @@
 /* pages/user/user.wxss */
 page {
-  background-color: #F5F5F5;
+  background: linear-gradient(#fdfbfb 0%, #ebedee 100%);
 }
 
 .user_box {
-  background-color: #F5F5F5;
+  background: linear-gradient(#fdfbfb 0%, #ebedee 100%);
 }
 
 .header_box {
   height: 445rpx;
   position: relative;
   background-size: contain;
-  background-color: #fff;
+  background-color: transparent
+  
 }
 
 .header_box .setting_btn {
@@ -142,7 +143,7 @@ page {
 .login_box {
   width: 100%;
   height: 100%;
-  background-image: var(--background-image);
+  background-color: #fff;
 }
 
 .login_img {
@@ -163,4 +164,5 @@ page {
   text-align: center;
   font-weight: bold;
   letter-spacing: 4rpx;
+  margin-top: 200rpx;
 }

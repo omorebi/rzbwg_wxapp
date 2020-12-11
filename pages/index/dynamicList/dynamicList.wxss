@@ -2,196 +2,225 @@
 
 /* 轮播图 */
 .carousel {
-    width: 690rpx;
-    height: 350rpx;
-    margin: 0 auto;
-    border-radius: 20rpx;
-    overflow: hidden;
-    margin-top: 40rpx;
+  width: 690rpx;
+  height: 350rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-top: 40rpx;
 }
 
-.swiper-item image {
-    width: 690rpx;
-    height: 350rpx;
-    border-radius: 20rpx;
-    overflow: hidden;
+.swiper_item {
+  position: relative;
+}
+
+.swiper_item .title {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #fefcfc;
+  position: absolute;
+  bottom: 30rpx;
+  left: 30rpx;
+  z-index: 9;
+}
+
+.swiper_item image {
+  width: 690rpx;
+  height: 350rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
 }
 
 /* 自己写的指示点 */
 .dots {
-    margin-top: 20rpx;
-    margin-bottom: 30rpx;
-    display: flex;
-    justify-content: center;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
 }
 
 .dots .dot {
-    margin: 0 5rpx;
-    width: 33rpx;
-    height: 6rpx;
-    border-radius: 3rpx;
-    background-color: #7f2a17;
-    opacity: 0.2;
-    transition: all .6s;
+  margin: 0 5rpx;
+  width: 33rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background-color: #7f2a17;
+  opacity: 0.2;
+  transition: all .6s;
 }
 
 .dots .dot.active {
-    width: 58rpx;
-    height: 6rpx;
-    opacity: 1;
+  width: 58rpx;
+  height: 6rpx;
+  opacity: 1;
 }
 
 /* tab 选项卡部分开始 */
 .tab_title {
-    height: 100rpx;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .tab_item {
-    width: 50%;
-    height: 100rpx;
-    line-height: 100rpx;
-    text-align: center;
-    font-size: 32rpx;
-    font-weight: 400;
-    color: #222222;
-    letter-spacing: 2rpx;
-    position: relative;
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #222222;
+  letter-spacing: 2rpx;
+  position: relative;
 }
+
 .active_line {
-    width: 50rpx;
-    height: 8rpx;
-    background-color: #7F2A17;
-    border-top: 4px solid #C79289;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
+  width: 50rpx;
+  height: 8rpx;
+  background-color: #7F2A17;
+  border-top: 4px solid #C79289;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
 }
+
 .active_tab {
-    color: #7F2A17;
+  color: #7F2A17;
 }
+
 .active_tab .active_line {
-    display: block;
+  display: block;
 }
 
 /* 动态列表 */
 .dynamicList_box {
-    width: 700rpx;
-    margin: 20rpx auto;
-    margin-bottom: 0;
-  }
-  
-  /* 无图模式上下布局  .dynamicList_item */
-  .upDownBox_title {
-    font-size: 32rpx;
-    color: #424851;
-    margin-bottom: 20rpx;
-    margin-top: 30rpx;
-    line-height: 40rpx;
-  }
-  
-  .upDownBox_des {
-    font-size: 22rpx;
-    color: #999999;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 50rpx;
-    margin-bottom: 20rpx;
-  }
-  .column_line {
-      width: 1px;
-      height: 23rpx;
-      background-color: #999999;
-      margin: 0 20rpx;
-  }
+  width: 700rpx;
+  margin: 20rpx auto;
+  margin-bottom: 0;
+}
+
+/* 无图模式上下布局  .dynamicList_item */
+.upDownBox_title {
+  font-size: 32rpx;
+  color: #424851;
+  margin-bottom: 20rpx;
+  margin-top: 30rpx;
+  line-height: 40rpx;
+}
+
+.upDownBox_des {
+  font-size: 22rpx;
+  color: #999999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50rpx;
+  margin-bottom: 20rpx;
+}
+
+.column_line {
+  width: 1px;
+  height: 23rpx;
+  background-color: #999999;
+  margin: 0 20rpx;
+}
 
 
-  /* 置顶 */
-  .upDownBox_des .topping {
-    padding: 4rpx 5rpx;
-    border: 1rpx solid  var(--font-theme-color);
-    color: var(--font-theme-color);
-    border-radius: 5rpx;
-    margin-right: 14rpx;
-    font-size: 16rpx;
-  }
+/* 置顶 */
+.upDownBox_des .topping {
+  padding: 4rpx 5rpx;
+  border: 1rpx solid var(--font-theme-color);
+  color: var(--font-theme-color);
+  border-radius: 5rpx;
+  margin-right: 14rpx;
+  font-size: 16rpx;
+}
 
-  .upDownBox_des .date{
-    margin-right: 50rpx;
-  }
-  .upDownBox_des image {
-    width: 23rpx;
-    height: 17rpx;
-    margin-right: 7rpx;
-  }
-  
-  /* 有图的左右布局的盒子 */
-  .row_box {
-    width: 100%;
-    height: 250rpx;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .row_box .row_left {
-    width: 370rpx;
-    height: 180rpx;
-    position: relative;
-    
-  }
-  .row_left_title {
-    width: 350rpx;
-    line-height: 40rpx;
-    white-space: normal;
-    font-size: 30rpx;
-    color: #222222;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
-    -webkit-box-orient: vertical !important;
-  }
-  .row_box .row_left .row_left_des {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 0;
-  }
-  
-  .row_box .row_right image {
-    width: 270rpx;
-    height: 180rpx;
-    display: block;
-    border-radius: 12rpx;
-  }
-  /* 分割线 */
-  .dynamicListLine {
-    width: 100%;
-    height: 1px;
-    background-color: #f4f4f4;
-  }
-  
-  
-  /* 非置顶盒子 */
-  .normal {
-    width: 670rpx;
-    margin: 0 auto;
-  }
-  .normal .upDownBox {
-    border-bottom: 1rpx solid #EAEAEA;
-  }
-  .normal .upDownBox .upDownBox_title {
-    padding-top: 30rpx;
-  }
-  .pb30 {
-    padding-bottom: 20rpx;
-  }
-  .normal>.upDownBox:last-of-type {
-    border-bottom: none;
-  }
+.upDownBox_des .date {
+  margin-right: 50rpx;
+}
+
+.upDownBox_des image {
+  width: 23rpx;
+  height: 17rpx;
+  margin-right: 7rpx;
+}
+
+/* 有图的左右布局的盒子 */
+.row_box {
+  width: 100%;
+  height: 250rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row_box .row_left {
+  width: 370rpx;
+  height: 180rpx;
+  position: relative;
+
+}
+
+.row_left_title {
+  width: 350rpx;
+  line-height: 40rpx;
+  white-space: normal;
+  font-size: 30rpx;
+  color: #222222;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.row_box .row_left .row_left_des {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+}
+
+.row_box .row_right image {
+  width: 270rpx;
+  height: 180rpx;
+  display: block;
+  border-radius: 12rpx;
+}
+
+/* 分割线 */
+.dynamicListLine {
+  width: 100%;
+  height: 1px;
+  background-color: #f4f4f4;
+}
+
+
+/* 非置顶盒子 */
+.normal {
+  width: 670rpx;
+  margin: 0 auto;
+}
+
+.normal .upDownBox {
+  border-bottom: 1rpx solid #EAEAEA;
+}
+
+.normal .upDownBox .upDownBox_title {
+  padding-top: 30rpx;
+}
+
+.pb30 {
+  padding-bottom: 20rpx;
+}
+
+.normal>.upDownBox:last-of-type {
+  border-bottom: none;
+}

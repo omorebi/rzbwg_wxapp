@@ -17,7 +17,12 @@
     color: #333333;
     margin-bottom: 15rpx;
 } 
-
+.square_img {
+    width: 23rpx;
+    height: 24rpx;
+    margin-right: 20rpx;
+    margin-bottom: 2rpx;
+}
 /* 时间盒子 */
 .timer_box {
     display: flex;

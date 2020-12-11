@@ -12,12 +12,14 @@ page {
   border-radius: 20rpx;
   overflow: hidden;
 }
-.swiper-item image {
+
+.swiper_item image {
   height: 690rpx;
   width: 690rpx;
   border-radius: 20rpx;
   overflow: hidden;
 }
+
 /* 自己写的指示点 */
 .dots {
   margin-top: 40rpx;
@@ -58,8 +60,8 @@ page {
 }
 
 .menu_icon {
-  height: 60rpx;
-  width:  60rpx;
+  height: 62rpx;
+  width: 62rpx;
   margin: 0 auto;
 }
 
@@ -73,7 +75,7 @@ page {
 
 
 
-/* 湘博动态 */
+/* 馆务动态 */
 .dynamic_box {
   margin-bottom: 30rpx;
 }
@@ -90,9 +92,10 @@ page {
   border-radius: 24rpx;
 }
 
+/* 正常的上下布局 */
 .dynamic_item {
-  padding: 20rpx 0;
-  border-bottom: 1px solid #FBFBFB;
+  padding: 36rpx 0;
+  border-bottom: 1px solid #F4F4F4;
 }
 
 .dynamic_item:last-of-type {
@@ -102,7 +105,8 @@ page {
 .dynamic_name {
   padding: 0 30rpx;
   font-size: 32rpx;
-  color: #424851;
+  font-weight: 400;
+  color: #282d32;
   margin-bottom: 20rpx;
 }
 
@@ -118,15 +122,63 @@ page {
 .greyLine {
   margin: 0 15rpx;
 }
-/* 置顶 */
-.topping {
-  padding: 4rpx 5rpx;
-  border: 1rpx solid  var(--font-theme-color);
-  color: var(--font-theme-color);
-  border-radius: 5rpx;
-  margin-right: 14rpx;
-  font-size: 16rpx;
+
+/* 左右布局 */
+.dynamic_item_type2 {
+  padding: 25rpx 30rpx;
+  box-sizing: border-box;
+  height: 229rpx;
+  border-bottom: 1px solid #F4F4F4;
+  display: flex;
+  flex-direction: row;
 }
+
+.dynamic_item_type2:last-child {
+  border-bottom: none;
+}
+
+.type2_left {
+  width: 180rpx;
+  height: 180rpx;
+  border: 4rpx solid #B99A95;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.type2_left image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.type2_right {
+  width: 510rpx;
+  height: 100%;
+  position: relative;
+  padding-left: 24rpx;
+  box-sizing: border-box;
+}
+
+.type2_right .title {
+  white-space: normal;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #282d32;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.type2_right .des {
+  color: #707070;
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+  position: absolute;
+  bottom: 0;
+  left: 24rpx;
+}
+
 
 /* 展览部分 */
 .nav_title {
@@ -141,28 +193,26 @@ page {
 }
 
 .nav_title .left {
-  font-size: 44rpx;
-  color: #424851;
+  font-size: 40rpx;
+  color: #232323;
   letter-spacing: 2rpx;
   font-weight: 400;
-  position: relative;
   padding-left: 6rpx;
 }
+
 .nav_title .left .nav_icon {
-  width: 60rpx;
-  height: 60rpx;
-  position: absolute;
-  top: 20rpx;
-  left: 0;
-  z-index: -1;
+  width: 41rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
 }
+
 .nav_title .right {
   color: #C4AC88FF;
   font-size: 30rpx;
 }
 
 /* scroll-view 部分 */
-.scroll-box {
+.scroll_box {
   width: 750rpx;
   height: 348rpx;
   display: flex;
@@ -181,13 +231,16 @@ page {
   position: relative;
 
 }
+
 .exhibition_item:first-child {
   margin-left: 48rpx;
 }
-.item-imgs image {
+
+.item_imgs image {
   width: 500rpx;
   height: 340rpx;
 }
+
 .exhibition_name {
   width: 500rpx;
   height: 68rpx;
@@ -195,7 +248,7 @@ page {
   color: #fff;
   text-align: center;
   position: absolute;
-  background-color: rgba(127,42,23,.8);
+  background-color: rgba(127, 42, 23, .8);
   bottom: 0;
   left: 0;
 }
